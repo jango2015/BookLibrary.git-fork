@@ -1,0 +1,17 @@
+
+packages/
+New folder/
+*.ncrunchproject
+*.ncrunchsolution
+BookLibrary.ApplicationService/bin/
+BookLibrary.ApplicationService/obj/
+BookLibrary.Core/bin/
+BookLibrary.Core/obj/
+BookLibrary.Domain/bin/
+BookLibrary.Domain/obj/
+BookLibrary.IntegrationTests/bin/
+BookLibrary.IntegrationTests/obj
+BookLibrary.Model/obj/
+BookLibrary.Repository/bin/
+BookLibrary.Repository/obj/
+BookLibrary.Model/bin
