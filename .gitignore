@@ -15,3 +15,5 @@ BookLibrary.Model/obj/
 BookLibrary.Repository/bin/
 BookLibrary.Repository/obj/
 BookLibrary.Model/bin
+Redis.Practice/bin/
+Redis.Practice/obj
