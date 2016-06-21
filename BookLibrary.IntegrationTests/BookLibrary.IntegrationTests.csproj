@@ -109,13 +109,13 @@
       <Project>{ae6cb151-5405-433a-9378-a02bea4d93f9}</Project>
       <Name>BookLibrary.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BookLibrary.DomainModel\BookLibrary.DomainModel.csproj">
+      <Project>{D9A0F51C-7AEB-4844-AE54-260D14D87C95}</Project>
+      <Name>BookLibrary.DomainModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BookLibrary.Domain\BookLibrary.Domain.csproj">
       <Project>{D1418E2F-25C7-41BB-B705-7E5CFDB0B186}</Project>
       <Name>BookLibrary.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BookLibrary.Model\BookLibrary.Model.csproj">
-      <Project>{D9A0F51C-7AEB-4844-AE54-260D14D87C95}</Project>
-      <Name>BookLibrary.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\BookLibrary.Repository\BookLibrary.Repository.csproj">
       <Project>{6B2FF2DC-A3CC-47D0-A397-F35833C377EF}</Project>

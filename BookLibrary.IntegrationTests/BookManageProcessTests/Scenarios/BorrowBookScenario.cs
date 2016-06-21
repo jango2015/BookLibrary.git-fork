@@ -1,8 +1,8 @@
 ﻿using System;
 using BookLibrary.ApplicationService.Contracts;
+using BookLibrary.DomainModel;
 using BookLibrary.IntegrationTests.BookTests.Scenarios;
 using BookLibrary.IntegrationTests.UserTests.Scenarios;
-using BookLibrary.Model;
 using Castle.Windsor;
 
 namespace BookLibrary.IntegrationTests.BookManageProcessTests.Scenarios

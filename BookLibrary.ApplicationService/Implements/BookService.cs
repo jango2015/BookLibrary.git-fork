@@ -2,7 +2,7 @@
 using BookLibrary.ApplicationService.Contracts;
 using BookLibrary.Core;
 using BookLibrary.Domain.Book;
-using BookLibrary.Model;
+using BookLibrary.DomainModel;
 using BookLibrary.Repository.Contracts;
 
 namespace BookLibrary.ApplicationService.Implements

@@ -2,7 +2,7 @@
 using System.Diagnostics.Contracts;
 using BookLibrary.Core.Extensions;
 using BookLibrary.Domain.Exceptions;
-using BookLibrary.Model;
+using BookLibrary.DomainModel;
 
 namespace BookLibrary.Domain.User
 {

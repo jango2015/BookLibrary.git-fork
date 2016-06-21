@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics.Contracts;
 using BookLibrary.Core.Extensions;
-using BookLibrary.Model;
+using BookLibrary.DomainModel;
 
 namespace BookLibrary.Domain.Book
 {

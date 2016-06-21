@@ -1,6 +1,6 @@
 ﻿using System;
 using BookLibrary.Domain.User;
-using BookLibrary.Model;
+using BookLibrary.DomainModel;
 
 namespace BookLibrary.ApplicationService.Contracts
 {

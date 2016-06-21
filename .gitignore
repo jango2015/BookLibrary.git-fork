@@ -17,3 +17,7 @@ BookLibrary.Repository/obj/
 BookLibrary.Model/bin
 Redis.Practice/bin/
 Redis.Practice/obj
+BookLibrary.DomainModel/obj/
+BookLibrary.DomainModel/bin/
+BookLibrary.QueryModelUpdater/obj/
+BookLibrary.QueryModelUpdater/bin/

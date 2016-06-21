@@ -5,7 +5,7 @@ using BookLibrary.ApplicationService.Exceptions;
 using BookLibrary.Core;
 using BookLibrary.Core.Uow;
 using BookLibrary.Domain.User;
-using BookLibrary.Model;
+using BookLibrary.DomainModel;
 using BookLibrary.Repository.Contracts;
 
 namespace BookLibrary.ApplicationService.Implements

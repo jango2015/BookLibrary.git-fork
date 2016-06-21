@@ -1,6 +1,6 @@
 ﻿using System;
 using BookLibrary.ApplicationService.Contracts;
-using BookLibrary.Model;
+using BookLibrary.DomainModel;
 using Castle.Windsor;
 
 namespace BookLibrary.IntegrationTests.BookManageProcessTests.Scenarios

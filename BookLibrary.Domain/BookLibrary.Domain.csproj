@@ -106,9 +106,9 @@
       <Project>{AE6CB151-5405-433A-9378-A02BEA4D93F9}</Project>
       <Name>BookLibrary.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BookLibrary.Model\BookLibrary.Model.csproj">
+    <ProjectReference Include="..\BookLibrary.DomainModel\BookLibrary.DomainModel.csproj">
       <Project>{D9A0F51C-7AEB-4844-AE54-260D14D87C95}</Project>
-      <Name>BookLibrary.Model</Name>
+      <Name>BookLibrary.DomainModel</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

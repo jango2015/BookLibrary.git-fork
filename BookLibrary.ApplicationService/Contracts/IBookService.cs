@@ -1,5 +1,5 @@
 ﻿using System;
-using BookLibrary.Model;
+using BookLibrary.DomainModel;
 
 namespace BookLibrary.ApplicationService.Contracts
 {
