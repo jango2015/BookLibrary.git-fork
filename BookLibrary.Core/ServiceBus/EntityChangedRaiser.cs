@@ -1,5 +1,7 @@
-﻿using BookLibrary.Core.Event;
+﻿using System;
+using BookLibrary.Core.Event;
 using BookLibrary.Core.Uow;
+using Castle.Core.Internal;
 
 namespace BookLibrary.Core.ServiceBus
 {
@@ -14,23 +16,25 @@ namespace BookLibrary.Core.ServiceBus
             _serviceBus = serviceBus;
         }
 
-        public void RaiseEntityCreatedEvent<TEvent>(TEvent evt) where TEvent : IEntityCreatedEvent
+        public void RaiseEntityCreatedEvent<TEntity>(TEntity entity)
         {
-            RaiseEvent(evt);
+            RaiseEvent(typeof(EntityCreatedEvent<>),entity);
         }
 
-        public void RaiseEntityUpdatedEvent<TEvent>(TEvent evt) where TEvent:IEntityUpdatedEvent
+        public void RaiseEntityUpdatedEvent<TEntity>(TEntity entity)
         {
-            RaiseEvent(evt);
+            RaiseEvent(typeof(EntityUpdatedEvent<>), entity);
         }
 
-        public void RaiseEntityDeletedEvent<TEvent>(TEvent evt) where TEvent:IEntityDeletedEvent
+        public void RaiseEntityDeletedEvent<TEntity>(TEntity entity)
         {
-            RaiseEvent(evt);
+            RaiseEvent(typeof(EntityDeletedEvent<>), entity);
         }
 
-        private void RaiseEvent<TEvent>(TEvent evt)
+        private void RaiseEvent<TEntity>(Type genericEventType, TEntity entity)
         {
+            var eventType = genericEventType.MakeGenericType(typeof (Entity));
+            var evt = Activator.CreateInstance(eventType, new[] {entity});
             _unitOfWorkManager.Current.RegisterCompleted(() => _serviceBus.Publish(evt));
         }
     }
