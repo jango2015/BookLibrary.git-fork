@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics.Contracts;
 using System.Transactions;
 
 namespace BookLibrary.Core.Uow.EntityFramework
@@ -9,7 +11,7 @@ namespace BookLibrary.Core.Uow.EntityFramework
         private readonly DefaultUnitOfWorkOptions _defaultUnitOfWorkOptions;
         private readonly DbContext _dbContext;
         private TransactionScope _transactionScope;
-        private Action _completed;
+        private readonly List<Action> _completed;
         private Action _disposed;
         private Action _failed;
         public string Id { get; }
@@ -19,6 +21,7 @@ namespace BookLibrary.Core.Uow.EntityFramework
             _defaultUnitOfWorkOptions = defaultUnitOfWorkOptions;
             _dbContext = dbContext;
             Id = Guid.NewGuid().ToString("n");
+            _completed=new List<Action>();
         }
 
         public void Begin(UnitOfWorkOptions options)
@@ -45,7 +48,7 @@ namespace BookLibrary.Core.Uow.EntityFramework
                 _dbContext.SaveChanges();
                 _transactionScope?.Complete();
 
-                _completed?.Invoke();
+                _completed.ForEach(c=>c.Invoke());
             }
             catch
             {
@@ -57,16 +60,22 @@ namespace BookLibrary.Core.Uow.EntityFramework
 
         public void RegisterCompleted(Action action)
         {
-            _completed = action;
+            Contract.Requires(action!=null);
+
+            _completed.Add(action);
         }
 
         public void RegisterDisposed(Action action)
         {
+            Contract.Requires(action != null);
+
             _disposed = action;
         }
 
         public void RegisterFailed(Action action)
         {
+            Contract.Requires(action != null);
+
             _failed = action;
         }
     }
