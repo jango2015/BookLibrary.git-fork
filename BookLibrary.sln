@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookLibrary.QueryModelUpdat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookLibrary.DomainModel", "BookLibrary.DomainModel\BookLibrary.DomainModel.csproj", "{D9A0F51C-7AEB-4844-AE54-260D14D87C95}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookLibrary.QueryModel", "BookLibrary.QueryModel\BookLibrary.QueryModel.csproj", "{2B3DEE42-9E17-42C8-ABBA-B064189E95B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{D9A0F51C-7AEB-4844-AE54-260D14D87C95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9A0F51C-7AEB-4844-AE54-260D14D87C95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9A0F51C-7AEB-4844-AE54-260D14D87C95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B3DEE42-9E17-42C8-ABBA-B064189E95B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B3DEE42-9E17-42C8-ABBA-B064189E95B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B3DEE42-9E17-42C8-ABBA-B064189E95B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B3DEE42-9E17-42C8-ABBA-B064189E95B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

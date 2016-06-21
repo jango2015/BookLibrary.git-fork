@@ -21,3 +21,5 @@ BookLibrary.DomainModel/obj/
 BookLibrary.DomainModel/bin/
 BookLibrary.QueryModelUpdater/obj/
 BookLibrary.QueryModelUpdater/bin/
+BookLibrary.QueryModel/bin/
+BookLibrary.QueryModel/obj/
