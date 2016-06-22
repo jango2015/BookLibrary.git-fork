@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AggregateRoot.cs" />
+    <Compile Include="ContainerInstallers\EntityChangedEventRaiserInstaller.cs" />
     <Compile Include="ContainerInstallers\ServiceBusInstaller.cs" />
     <Compile Include="ContainerInstallers\UowInstaller.cs" />
     <Compile Include="Entity.cs" />
@@ -59,7 +60,7 @@
     <Compile Include="Event\EntityEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
-    <Compile Include="ServiceBus\EntityChangedRaiser.cs" />
+    <Compile Include="ServiceBus\EntityChangedEventRaiser.cs" />
     <Compile Include="ServiceBus\IMessageHandler.cs" />
     <Compile Include="ServiceBus\IServiceBus.cs" />
     <Compile Include="ServiceBus\SyncServiceBus.cs" />

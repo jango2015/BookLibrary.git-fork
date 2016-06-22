@@ -3,6 +3,7 @@ using System.Linq;
 using BookLibrary.ApplicationService.Contracts;
 using BookLibrary.ApplicationService.Exceptions;
 using BookLibrary.Core;
+using BookLibrary.Core.ServiceBus;
 using BookLibrary.Core.Uow;
 using BookLibrary.Domain.User;
 using BookLibrary.DomainModel;
@@ -14,19 +15,19 @@ namespace BookLibrary.ApplicationService.Implements
     {
         private readonly IUserRepository _userRepository;
         private readonly IEmailUniqueChecker _emailUniqueChecker;
-        private readonly IUnitOfWorkManager _unitOfWorkManager;
+        private readonly EntityChangedEventRaiser _eventRaiser;
 
-        public UserService(IRepositoryContext context, IUserRepository userRepository,IEmailUniqueChecker emailUniqueChecker,IUnitOfWorkManager unitOfWorkManager)
+        public UserService(IRepositoryContext context, IUserRepository userRepository,IEmailUniqueChecker emailUniqueChecker,EntityChangedEventRaiser eventRaiser)
           : base(context)
         {
             _userRepository = userRepository;
             _emailUniqueChecker = emailUniqueChecker;
-            _unitOfWorkManager = unitOfWorkManager;
+            _eventRaiser = eventRaiser;
         }
 
         public Guid Register(UserModel userModel)
         {
-            var user = User.Register(userModel, _emailUniqueChecker);
+            var user = User.Register(userModel, _emailUniqueChecker,_eventRaiser);
             _userRepository.Add(user);
 
             return user.Id;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics.Contracts;
 using BookLibrary.Core.Extensions;
+using BookLibrary.Core.ServiceBus;
 using BookLibrary.Domain.Exceptions;
 using BookLibrary.DomainModel;
 
@@ -8,7 +9,7 @@ namespace BookLibrary.Domain.User
 {
     public partial class User
     {
-        public static User Register(UserModel userModel, IEmailUniqueChecker emailUniqueChecker)
+        public static User Register(UserModel userModel, IEmailUniqueChecker emailUniqueChecker,EntityChangedEventRaiser eventRaiser)
         {
             Contract.Requires(!userModel.Name.IsNullOrEmpty(), "invalid username");
 
@@ -29,6 +30,8 @@ namespace BookLibrary.Domain.User
                 RegisterDateTime = DateTime.Now,
                 LastLoginDateTime = DateTime.Now
             };
+
+            eventRaiser.RaiseEntityCreatedEvent(user);
             
             return user;
         }

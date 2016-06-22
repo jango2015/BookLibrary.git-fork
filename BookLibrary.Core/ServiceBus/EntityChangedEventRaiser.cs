@@ -5,12 +5,12 @@ using Castle.Core.Internal;
 
 namespace BookLibrary.Core.ServiceBus
 {
-    public class EntityChangedRaiser
+    public class EntityChangedEventRaiser
     {
         private readonly IUnitOfWorkManager _unitOfWorkManager;
         private readonly IServiceBus _serviceBus;
 
-        public EntityChangedRaiser(IUnitOfWorkManager unitOfWorkManager, IServiceBus serviceBus)
+        public EntityChangedEventRaiser(IUnitOfWorkManager unitOfWorkManager, IServiceBus serviceBus)
         {
             _unitOfWorkManager = unitOfWorkManager;
             _serviceBus = serviceBus;

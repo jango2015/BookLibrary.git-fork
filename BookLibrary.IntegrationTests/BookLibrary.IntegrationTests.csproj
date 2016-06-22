@@ -117,6 +117,10 @@
       <Project>{D1418E2F-25C7-41BB-B705-7E5CFDB0B186}</Project>
       <Name>BookLibrary.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BookLibrary.QueryModelUpdater\BookLibrary.QueryModelUpdater.csproj">
+      <Project>{299B4F1A-5D1D-4848-A4C2-C0E9E1F03D69}</Project>
+      <Name>BookLibrary.QueryModelUpdater</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BookLibrary.Repository\BookLibrary.Repository.csproj">
       <Project>{6B2FF2DC-A3CC-47D0-A397-F35833C377EF}</Project>
       <Name>BookLibrary.Repository</Name>

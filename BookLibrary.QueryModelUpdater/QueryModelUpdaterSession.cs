@@ -21,5 +21,15 @@ namespace BookLibrary.QueryModelUpdater
                 modelClient.Store(model);
             }
         }
+
+        public void Delete<TModel, TKey>(TKey key)
+        {
+            using (IRedisClient client = new RedisClient())
+            {
+                var modelClient = client.As<TModel>();
+                modelClient.DeleteById(key);
+            }
+        }
+      
     }
 }

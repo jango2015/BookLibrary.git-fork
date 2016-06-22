@@ -2,6 +2,7 @@
 using BookLibrary.ApplicationService.UowHelper;
 using BookLibrary.Core.ContainerInstallers;
 using BookLibrary.IntegrationTests.WindsorContainer;
+using BookLibrary.QueryModelUpdater.ContainerInstallers;
 using BookLibrary.Repository.ContainerInstallers;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
@@ -27,7 +28,7 @@ namespace BookLibrary.IntegrationTests
                 _container.Install(FromAssembly.Containing<ApplicationServiceInstaller>());
                 _container.Install(FromAssembly.Containing<RepositoryContextInstaller>());
                 _container.Install(FromAssembly.Containing<UowInstaller>());
-
+                _container.Install(FromAssembly.Containing<QueryModelUpdaterInstaller>());
             }
 
             return _container;

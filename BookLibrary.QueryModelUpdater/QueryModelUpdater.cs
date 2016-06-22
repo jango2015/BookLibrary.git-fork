@@ -3,8 +3,8 @@
 
 //namespace BookLibrary.QueryModelUpdater
 //{
-//    public class QueryModelUpdater<TUpdater,TQueryModel,TEntityChangedEvent>
-//        where TUpdater: QueryModelUpdater<TUpdater,TQueryModel,TEntityChangedEvent>
+//    public class QueryModelUpdater<TUpdater, TQueryModel, TEntityChangedEvent>
+//        where TUpdater : QueryModelUpdater<TUpdater, TQueryModel, TEntityChangedEvent>
 //    {
 //        private readonly IQueryModelUpdaterSession _session;
 
@@ -13,9 +13,12 @@
 //            _session = session;
 //        }
 
-//        public virtual void Handle(TEntityChangedEvent evt)
-//        {
-           
-//        }
+//        //public virtual void Handle(TEntityChangedEvent evt)
+//        //{
+//        //    if (evt is IEntityCreatedEvent || evt is IEntityUpdatedEvent)
+//        //    {
+                
+//        //    }
+//        //}
 //    }
 //}

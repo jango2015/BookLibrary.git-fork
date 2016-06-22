@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BookLibrary.QueryModelUpdater</RootNamespace>
     <AssemblyName>BookLibrary.QueryModelUpdater</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,6 +31,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BookLibrary.DomainModel">
+      <HintPath>..\BookLibrary.DomainModel\bin\Debug\BookLibrary.DomainModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.3.3.0\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="ServiceStack.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=e06fbc6124f57c43, processorArchitecture=MSIL">
       <HintPath>..\packages\ServiceStack.Common.Signed.4.0.60\lib\net40\ServiceStack.Common.dll</HintPath>
       <Private>True</Private>
@@ -56,24 +68,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContainerInstallers\QueryModelUpdaterInstaller.cs" />
+    <Compile Include="ContainerInstallers\QueryModelUpdaterSessionInstaller.cs" />
     <Compile Include="IQueryModelUpdaterSession.cs" />
     <Compile Include="QueryModelUpdater.cs" />
     <Compile Include="QueryModelUpdaterSession.cs" />
-    <Compile Include="UserQueryModelUpdater.cs" />
+    <Compile Include="User\UserQueryModelDeletedUpdater.cs" />
+    <Compile Include="User\UserQueryModelUpdatedUpdater.cs" />
+    <Compile Include="User\UserQueryModelCreatedUpdater.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BookLibrary.Core\BookLibrary.Core.csproj">
       <Project>{ae6cb151-5405-433a-9378-a02bea4d93f9}</Project>
       <Name>BookLibrary.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BookLibrary.DomainModel\BookLibrary.DomainModel.csproj">
-      <Project>{d9a0f51c-7aeb-4844-ae54-260d14d87c95}</Project>
-      <Name>BookLibrary.DomainModel</Name>
+    <ProjectReference Include="..\BookLibrary.QueryModel\BookLibrary.QueryModel.csproj">
+      <Project>{2B3DEE42-9E17-42C8-ABBA-B064189E95B2}</Project>
+      <Name>BookLibrary.QueryModel</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
