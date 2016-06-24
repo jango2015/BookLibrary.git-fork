@@ -34,6 +34,8 @@ namespace BookLibrary.Core.ServiceBus
         private void RaiseEvent<TEntity>(Type genericEventType, TEntity entity)
         {
             var eventType = genericEventType.MakeGenericType(typeof (Entity));
+            var constructor = eventType.GetConstructor(new[] {typeof(TEntity)});
+            var evt1 = constructor.Invoke(new object[] {entity});
             var evt = Activator.CreateInstance(eventType, new[] {entity});
             _unitOfWorkManager.Current.RegisterCompleted(() => _serviceBus.Publish(evt));
         }
