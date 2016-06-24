@@ -15,19 +15,17 @@ namespace BookLibrary.ApplicationService.Implements
     {
         private readonly IUserRepository _userRepository;
         private readonly IEmailUniqueChecker _emailUniqueChecker;
-        private readonly EntityChangedEventRaiser _eventRaiser;
 
-        public UserService(IRepositoryContext context, IUserRepository userRepository,IEmailUniqueChecker emailUniqueChecker,EntityChangedEventRaiser eventRaiser)
+        public UserService(IRepositoryContext context, IUserRepository userRepository,IEmailUniqueChecker emailUniqueChecker)
           : base(context)
         {
             _userRepository = userRepository;
             _emailUniqueChecker = emailUniqueChecker;
-            _eventRaiser = eventRaiser;
         }
 
         public Guid Register(UserModel userModel)
         {
-            var user = User.Register(userModel, _emailUniqueChecker,_eventRaiser);
+            var user = User.Register(userModel, _emailUniqueChecker);
             _userRepository.Add(user);
 
             return user.Id;
@@ -57,13 +55,6 @@ namespace BookLibrary.ApplicationService.Implements
             user.ChangePassword(originalPassword,newPassword);
 
             _userRepository.Update(user);
-        }
-
-        public User GetUser(Guid id)
-        {
-            var user = _userRepository.Get(id);
-
-            return user;
         }
     }
 }

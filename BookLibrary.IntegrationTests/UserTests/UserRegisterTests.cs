@@ -39,7 +39,7 @@ namespace BookLibrary.IntegrationTests.UserTests
             scenario.Execute();
 
             //Assert
-            var user = UserService.GetUser(scenario.Id);
+            var user = UserQueryReader.Get(scenario.Id);
 
             user.Name.Should().Be(scenario.GivingModel.Name);
             user.Email.Should().Be(scenario.GivingModel.Email);

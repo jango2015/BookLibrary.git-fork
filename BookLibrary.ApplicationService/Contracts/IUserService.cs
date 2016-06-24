@@ -11,7 +11,5 @@ namespace BookLibrary.ApplicationService.Contracts
         bool Login(string email, string password);
 
         void ChangePassword(Guid id, string originalPassword, string newPassword);
-
-        User GetUser(Guid id);
     }
 }

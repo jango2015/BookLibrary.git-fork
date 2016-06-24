@@ -89,6 +89,7 @@
     <Compile Include="BookManageProcess\ReturnBookRecord.cs" />
     <Compile Include="Book\Book.cs" />
     <Compile Include="Book\Book.Domain.cs" />
+    <Compile Include="Events\UserCreatedEvent.cs" />
     <Compile Include="Exceptions\BookNotEnoughException.cs" />
     <Compile Include="Exceptions\BorrowSameBookTwiceException.cs" />
     <Compile Include="Exceptions\DomainException.cs" />

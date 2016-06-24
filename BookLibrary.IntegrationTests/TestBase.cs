@@ -1,5 +1,6 @@
 ﻿using System;
 using BookLibrary.ApplicationService.Contracts;
+using BookLibrary.QueryModelReader.Contracts;
 using Castle.MicroKernel.Lifestyle;
 using Castle.Windsor;
 
@@ -12,7 +13,9 @@ namespace BookLibrary.IntegrationTests
         protected IWindsorContainer Container { get; }
 
         protected IUserService UserService => Container.Resolve<IUserService>();
+        protected IUserQueryReader UserQueryReader => Container.Resolve<IUserQueryReader>();
         protected IBookService BookService => Container.Resolve<IBookService>();
+
         protected IBookManageProcessService BookManageProcessService => Container.Resolve<IBookManageProcessService>();
 
         public TestBase()

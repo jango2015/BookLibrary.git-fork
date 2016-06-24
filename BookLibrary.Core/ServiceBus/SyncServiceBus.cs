@@ -1,4 +1,5 @@
-﻿using Castle.Windsor;
+﻿using System;
+using Castle.Windsor;
 
 namespace BookLibrary.Core.ServiceBus
 {
@@ -17,7 +18,6 @@ namespace BookLibrary.Core.ServiceBus
             foreach (var messageHandler in handlers)
             {
                 messageHandler.Handle(message);
-
                 _container.Release(messageHandler);
             }
         }

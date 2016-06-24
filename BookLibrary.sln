@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookLibrary.ApplicationService", "BookLibrary.ApplicationService\BookLibrary.ApplicationService.csproj", "{95253CC1-E29F-4977-A47E-E2FD956EAF1C}"
 EndProject
@@ -20,6 +20,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookLibrary.DomainModel", "BookLibrary.DomainModel\BookLibrary.DomainModel.csproj", "{D9A0F51C-7AEB-4844-AE54-260D14D87C95}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookLibrary.QueryModel", "BookLibrary.QueryModel\BookLibrary.QueryModel.csproj", "{2B3DEE42-9E17-42C8-ABBA-B064189E95B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookLibrary.QueryModelReader", "BookLibrary.QueryModelReader\BookLibrary.QueryModelReader.csproj", "{358CF0AD-582A-4DE2-BAF8-BD9DB5AF4FAE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{2B3DEE42-9E17-42C8-ABBA-B064189E95B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B3DEE42-9E17-42C8-ABBA-B064189E95B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B3DEE42-9E17-42C8-ABBA-B064189E95B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{358CF0AD-582A-4DE2-BAF8-BD9DB5AF4FAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{358CF0AD-582A-4DE2-BAF8-BD9DB5AF4FAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{358CF0AD-582A-4DE2-BAF8-BD9DB5AF4FAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{358CF0AD-582A-4DE2-BAF8-BD9DB5AF4FAE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -9,7 +9,7 @@ namespace BookLibrary.Core.ContainerInstallers
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            container.Register(Component.For<EntityChangedEventRaiser>().LifestylePerWebRequest());
+            container.Register(Component.For<EventRaiser>().LifestylePerWebRequest());
         }
     }
 }

@@ -123,9 +123,17 @@
       <Project>{D1418E2F-25C7-41BB-B705-7E5CFDB0B186}</Project>
       <Name>BookLibrary.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BookLibrary.QueryModelReader\BookLibrary.QueryModelReader.csproj">
+      <Project>{358CF0AD-582A-4DE2-BAF8-BD9DB5AF4FAE}</Project>
+      <Name>BookLibrary.QueryModelReader</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BookLibrary.QueryModelUpdater\BookLibrary.QueryModelUpdater.csproj">
       <Project>{299B4F1A-5D1D-4848-A4C2-C0E9E1F03D69}</Project>
       <Name>BookLibrary.QueryModelUpdater</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLibrary.QueryModel\BookLibrary.QueryModel.csproj">
+      <Project>{2B3DEE42-9E17-42C8-ABBA-B064189E95B2}</Project>
+      <Name>BookLibrary.QueryModel</Name>
     </ProjectReference>
     <ProjectReference Include="..\BookLibrary.Repository\BookLibrary.Repository.csproj">
       <Project>{6B2FF2DC-A3CC-47D0-A397-F35833C377EF}</Project>

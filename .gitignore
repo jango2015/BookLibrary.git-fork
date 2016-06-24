@@ -24,3 +24,5 @@ BookLibrary.QueryModelUpdater/bin/
 BookLibrary.QueryModel/bin/
 BookLibrary.QueryModel/obj/
 TestResults/
+BookLibrary.QueryModelReader/bin/
+BookLibrary.QueryModelReader/obj/

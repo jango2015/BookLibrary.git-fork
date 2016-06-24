@@ -1,7 +1,9 @@
 ﻿using BookLibrary.ApplicationService.ContainerInstallers;
 using BookLibrary.ApplicationService.UowHelper;
+using BookLibrary.Core;
 using BookLibrary.Core.ContainerInstallers;
 using BookLibrary.IntegrationTests.WindsorContainer;
+using BookLibrary.QueryModelReader.ContainerInstallers;
 using BookLibrary.QueryModelUpdater.ContainerInstallers;
 using BookLibrary.Repository.ContainerInstallers;
 using Castle.MicroKernel.Registration;
@@ -18,7 +20,7 @@ namespace BookLibrary.IntegrationTests
         {
             if (_container == null)
             {
-                _container=new Castle.Windsor.WindsorContainer();
+                _container = IocContainerManager.Container;
                 UnitOfWorkRegistrar.Initialize(_container);
 
                 _container.ChangeComponentsLifestyleToScoped();
@@ -29,6 +31,7 @@ namespace BookLibrary.IntegrationTests
                 _container.Install(FromAssembly.Containing<RepositoryContextInstaller>());
                 _container.Install(FromAssembly.Containing<UowInstaller>());
                 _container.Install(FromAssembly.Containing<QueryModelUpdaterInstaller>());
+                _container.Install(FromAssembly.Containing<QueryModelReaderSessionInstaller>());
             }
 
             return _container;

@@ -1,11 +1,12 @@
-﻿using BookLibrary.Core.Event;
+﻿using System;
+using BookLibrary.Core.Event;
 using BookLibrary.Core.ServiceBus;
-using BookLibrary.DomainModel;
+using BookLibrary.Domain.Events;
 using BookLibrary.QueryModel;
 
 namespace BookLibrary.QueryModelUpdater.User
 {
-    public partial class UserQueryModelCreatedUpdater : IMessageHandler<EntityCreatedEvent<UserModel>>
+    public  class UserQueryModelCreatedUpdater : IMessageHandler<UserCreatedEvent>
     {
         private readonly IQueryModelUpdaterSession _session;
 
@@ -14,14 +15,15 @@ namespace BookLibrary.QueryModelUpdater.User
             _session = session;
         }
 
-        public void Handle(EntityCreatedEvent<UserModel> message)
+
+        public void Handle(UserCreatedEvent message)
         {
             var queryModel = new UserQueryModel()
             {
-                Id = message.Entity.Id,
-                Name = message.Entity.Name,
-                Email = message.Entity.Email,
-                RegisterDateTime = message.Entity.RegisterDateTime
+                Id = message.User.Id,
+                Name = message.User.Name,
+                Email = message.User.Email,
+                RegisterDateTime = message.User.RegisterDateTime
             };
             _session.Save(queryModel);
         }

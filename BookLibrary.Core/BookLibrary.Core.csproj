@@ -36,6 +36,7 @@
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Transactions" />
@@ -54,13 +55,14 @@
     <Compile Include="Extensions\Seq.cs" />
     <Compile Include="IAggregateRoot.cs" />
     <Compile Include="IEntity.cs" />
+    <Compile Include="IocContainerManager.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="IRepositoryContext.cs" />
     <Compile Include="BookLibraryException.cs" />
     <Compile Include="Event\EntityEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
-    <Compile Include="ServiceBus\EntityChangedEventRaiser.cs" />
+    <Compile Include="ServiceBus\EventRaiser.cs" />
     <Compile Include="ServiceBus\IMessageHandler.cs" />
     <Compile Include="ServiceBus\IServiceBus.cs" />
     <Compile Include="ServiceBus\SyncServiceBus.cs" />
