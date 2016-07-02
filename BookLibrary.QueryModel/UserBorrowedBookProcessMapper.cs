@@ -5,18 +5,9 @@ namespace BookLibrary.QueryModel
 {
     public class UserBorrowedBookProcessMapper
     {
-        public UserBorrowedBookProcessMapper()
+        public static string Index(Guid userId)
         {
-            Mappers=new List<Mapper>();
-        }
-
-        public List<Mapper> Mappers { get; set; } 
-
-        public class Mapper
-        {
-            public Guid UserId { get; set; }
-            public Guid BorrowedBookProcessId { get; set; }
-            public DateTime BorrowedDate { get; set; }
+            return "urn:user>borrowedBookProcess:" + userId;
         }
     }
 }

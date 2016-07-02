@@ -6,15 +6,6 @@ namespace BookLibrary.QueryModelUpdater
 {
     public class QueryModelUpdaterSession:IQueryModelUpdaterSession
     {
-        public TModel Get<TModel, TKey>(TKey key)
-        {
-            using (IRedisClient client = new RedisClient())
-            {
-                var modelClient = client.As<TModel>();
-                return modelClient.GetById(key);
-            }
-        }
-
         public void Save<TModel>(TModel model)
         {
             using (IRedisClient client = new RedisClient())
@@ -33,20 +24,14 @@ namespace BookLibrary.QueryModelUpdater
             }
         }
 
-        public void AddToList(string key, string item)
+        public void AddItemToSet(string key, string item)
         {
             using (IRedisClient client = new RedisClient())
             {
-                client.AddItemToList(key,item);
+                client.AddItemToSet(key, item);
             }
         }
-
-        public List<string> GetAllItem(string key)
-        {
-            using (IRedisClient client = new RedisClient())
-            {
-                return client.GetAllItemsFromList(key);
-            }
-        }
+        
+       
     }
 }
