@@ -19,7 +19,6 @@ namespace BookLibrary.IntegrationTests.UserTests
             //Assert
              var login = UserService.Login(changePasswordScenario.Email, changePasswordScenario.NewPassword);
              login.Should().BeTrue();
-
          }
     }
 }

@@ -2,7 +2,7 @@
 using System.Diagnostics.Contracts;
 using BookLibrary.Core.Extensions;
 using BookLibrary.Core.ServiceBus;
-using BookLibrary.Domain.Events;
+using BookLibrary.Domain.Events.User;
 using BookLibrary.Domain.Exceptions;
 using BookLibrary.DomainModel;
 
@@ -32,7 +32,7 @@ namespace BookLibrary.Domain.User
                 LastLoginDateTime = DateTime.Now
             };
 
-            EventRaiser.RaiseEvent(new UserCreatedEvent(user));
+            EventRaiser.RaiseEvent(new UserCreatedEvent(id:user.Id,name:user.Name,email:user.Email,registerDateTime:user.RegisterDateTime,lastLoginDateTime:user.LastLoginDateTime));
             
             return user;
         }
@@ -45,6 +45,9 @@ namespace BookLibrary.Domain.User
             if (hashedPassword.IsCorrectPassword(password))
             {
                 LastLoginDateTime = DateTime.Now;
+
+                EventRaiser.RaiseEvent(new UserUpdatedEvent(id:Id,name:Name,email:Email,registerDateTime:RegisterDateTime,lastLoginDateTime:LastLoginDateTime));
+
                 return true;
             }
 
@@ -63,6 +66,8 @@ namespace BookLibrary.Domain.User
             var newHashedPassword = new Password(newPassword);
             Password = newHashedPassword.HashedPassword;
             Salt = newHashedPassword.Salt;
+
+            //ignore password updated event
         }
     }
 }

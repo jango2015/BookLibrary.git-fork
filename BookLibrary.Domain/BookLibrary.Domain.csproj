@@ -89,7 +89,6 @@
     <Compile Include="BookManageProcess\ReturnBookRecord.cs" />
     <Compile Include="Book\Book.cs" />
     <Compile Include="Book\Book.Domain.cs" />
-    <Compile Include="Events\UserCreatedEvent.cs" />
     <Compile Include="Exceptions\BookNotEnoughException.cs" />
     <Compile Include="Exceptions\BorrowSameBookTwiceException.cs" />
     <Compile Include="Exceptions\DomainException.cs" />
@@ -106,6 +105,10 @@
     <ProjectReference Include="..\BookLibrary.Core\BookLibrary.Core.csproj">
       <Project>{AE6CB151-5405-433A-9378-A02BEA4D93F9}</Project>
       <Name>BookLibrary.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLibrary.Domain.Events\BookLibrary.Domain.Events.csproj">
+      <Project>{7F1AD6F2-741A-4965-BAED-C322539E5A5F}</Project>
+      <Name>BookLibrary.Domain.Events</Name>
     </ProjectReference>
     <ProjectReference Include="..\BookLibrary.DomainModel\BookLibrary.DomainModel.csproj">
       <Project>{D9A0F51C-7AEB-4844-AE54-260D14D87C95}</Project>

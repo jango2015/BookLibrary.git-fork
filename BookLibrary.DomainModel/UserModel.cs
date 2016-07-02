@@ -13,5 +13,6 @@ namespace BookLibrary.DomainModel
         public string Email { get; set; }
 
         public DateTime RegisterDateTime { get; set; }
+        public DateTime LastLoginDateTime { get; set; }
     }
 }

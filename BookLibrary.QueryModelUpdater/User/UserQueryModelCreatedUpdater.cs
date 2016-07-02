@@ -1,7 +1,7 @@
 ﻿using System;
 using BookLibrary.Core.Event;
 using BookLibrary.Core.ServiceBus;
-using BookLibrary.Domain.Events;
+using BookLibrary.Domain.Events.User;
 using BookLibrary.QueryModel;
 
 namespace BookLibrary.QueryModelUpdater.User
@@ -20,10 +20,11 @@ namespace BookLibrary.QueryModelUpdater.User
         {
             var queryModel = new UserQueryModel()
             {
-                Id = message.User.Id,
-                Name = message.User.Name,
-                Email = message.User.Email,
-                RegisterDateTime = message.User.RegisterDateTime
+                Id = message.Id,
+                Name = message.Name,
+                Email = message.Email,
+                RegisterDateTime = message.RegisterDateTime,
+                LastLoginDateTime = message.LastLoginDateTime
             };
             _session.Save(queryModel);
         }

@@ -26,3 +26,5 @@ BookLibrary.QueryModel/obj/
 TestResults/
 BookLibrary.QueryModelReader/bin/
 BookLibrary.QueryModelReader/obj/
+BookLibrary.Domain.Events/bin/
+BookLibrary.Domain.Events/obj/
