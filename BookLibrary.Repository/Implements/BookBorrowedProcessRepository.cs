@@ -1,4 +1,4 @@
-﻿using BookLibrary.Domain.BookManageProcess;
+﻿using BookLibrary.Domain.BorrowedProcess;
 using BookLibrary.Repository.Contracts;
 using BookLibrary.Repository.EntityFramework;
 

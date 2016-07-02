@@ -1,7 +1,7 @@
 ﻿using System;
 using BookLibrary.Core;
 
-namespace BookLibrary.Domain.BookManageProcess
+namespace BookLibrary.Domain.BorrowedProcess
 {
     public class ReturnedRecord:Entity
     {

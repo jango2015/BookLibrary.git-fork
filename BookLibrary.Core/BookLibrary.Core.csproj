@@ -60,7 +60,7 @@
     <Compile Include="IRepository.cs" />
     <Compile Include="IRepositoryContext.cs" />
     <Compile Include="BookLibraryException.cs" />
-    <Compile Include="Event\EntityEvent.cs" />
+    <Compile Include="Events\EntityEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="ServiceBus\EventRaiser.cs" />

@@ -1,7 +1,7 @@
 ﻿using System.Data.Common;
 using System.Data.Entity;
 using BookLibrary.Domain.Book;
-using BookLibrary.Domain.BookManageProcess;
+using BookLibrary.Domain.BorrowedProcess;
 using BookLibrary.Domain.User;
 using BookLibrary.Repository.EntityFramework.Configurations;
 

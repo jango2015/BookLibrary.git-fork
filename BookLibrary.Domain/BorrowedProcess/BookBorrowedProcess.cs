@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using BookLibrary.Core;
 
-namespace BookLibrary.Domain.BookManageProcess
+namespace BookLibrary.Domain.BorrowedProcess
 {
     public partial class BookBorrowedProcess:AggregateRoot<BookBorrowedProcess>
     {

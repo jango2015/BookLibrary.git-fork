@@ -7,7 +7,7 @@ using BookLibrary.Core.ServiceBus;
 using BookLibrary.Domain.Events.BookBorrowedProcess;
 using BookLibrary.Domain.Exceptions;
 
-namespace BookLibrary.Domain.BookManageProcess
+namespace BookLibrary.Domain.BorrowedProcess
 {
     public partial class BookBorrowedProcess
     {
@@ -27,7 +27,7 @@ namespace BookLibrary.Domain.BookManageProcess
                 BorrowBook(book,borrowInterval);
             }
 
-            EventRaiser.RaiseEvent(new BookBorrowedProcessCreatedEvent(this));
+            EventRaiser.RaiseEvent(new BookBorrowedProcessEvent.BookBorrowedProcessCreatedEvent(this));
         }
 
         private void BorrowBook(Book.Book book,TimeSpan borrowInterval)
@@ -63,7 +63,7 @@ namespace BookLibrary.Domain.BookManageProcess
             var record=new ReturnedRecord(this,UserId, book,borrowRecord);
             BookReturnedRecords.Add(record);
 
-            EventRaiser.RaiseEvent(new BookBorrowedProcessUpdatedEvent(this));
+            EventRaiser.RaiseEvent(new BookBorrowedProcessEvent.BookBorrowedProcessUpdatedEvent(this));
         }
     }
 }

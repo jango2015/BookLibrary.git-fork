@@ -1,70 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using BookLibrary.Core.Event;
+using BookLibrary.Core.Events;
 
 namespace BookLibrary.Domain.Events.BookBorrowedProcess
 {
-    public class BookBorrowedProcessCreatedEvent:IEntityCreatedEvent,IBookLibraryEvent
+    public partial class BookBorrowedProcessEvent
     {
-        [Obsolete("for serilization")]
-        public BookBorrowedProcessCreatedEvent()
-        {
-            BookBorrowedRecords=new List<BorrowedRecord>();
-            BookReturnedRecords=new List<ReturnedRecord>();
-        }
-
-        public BookBorrowedProcessCreatedEvent(BookManageProcess.BookBorrowedProcess bookBorrowedProcess)
-        {
-            BookBorrowedProcessId = bookBorrowedProcess.Id;
-            UserId = bookBorrowedProcess.UserId;
-            BookBorrowedRecords = bookBorrowedProcess.BookBorrowedRecords.Select(x => new BorrowedRecord(x)).ToList();
-            BookReturnedRecords = bookBorrowedProcess.BookReturnedRecords.Select(x => new ReturnedRecord(x)).ToList();
-        }
-
-        public Guid BookBorrowedProcessId { get; private set; }
-        public Guid UserId { get; private set; }
-        public DateTime BorrowDate { get; private set; }
-        public  List<BorrowedRecord> BookBorrowedRecords { get; private set; }
-        public  List<ReturnedRecord> BookReturnedRecords { get; private set; }
-
-        public class BorrowedRecord
+        public class BookBorrowedProcessCreatedEvent : IEntityCreatedEvent, IBookLibraryEvent
         {
             [Obsolete("for serilization")]
-            public BorrowedRecord() { }
-            public BorrowedRecord(BookManageProcess.BorrowedRecord borrowedRecord)
+            public BookBorrowedProcessCreatedEvent()
             {
-                UserId = borrowedRecord.UserId;
-                BookId = borrowedRecord.Book.Id;
-                BorrowDate = borrowedRecord.BorrowDate;
-                BorrowInterval = borrowedRecord.BorrowInterval;
-
+                BookBorrowedRecords = new List<BorrowedRecord>();
+                BookReturnedRecords = new List<ReturnedRecord>();
             }
+
+            public BookBorrowedProcessCreatedEvent(BorrowedProcess.BookBorrowedProcess bookBorrowedProcess)
+            {
+                BookBorrowedProcessId = bookBorrowedProcess.Id;
+                UserId = bookBorrowedProcess.UserId;
+                BookBorrowedRecords =bookBorrowedProcess.BookBorrowedRecords.Select(x => new BorrowedRecord(x)).ToList();
+                BookReturnedRecords =bookBorrowedProcess.BookReturnedRecords.Select(x => new ReturnedRecord(x)).ToList();
+            }
+
+            public Guid BookBorrowedProcessId { get; private set; }
             public Guid UserId { get; private set; }
-            public Guid BookId { get; private set; }
             public DateTime BorrowDate { get; private set; }
-            public TimeSpan BorrowInterval { get; private set; }
-        }
-
-        public class ReturnedRecord
-        {
-            [Obsolete("for serilization")]
-            public ReturnedRecord() { }
-
-            public ReturnedRecord(BookManageProcess.ReturnedRecord returnedRecord)
-            {
-                UserId = returnedRecord.UserId;
-                BookId = returnedRecord.Book.Id;
-                ReturnDate = returnedRecord.ReturnDate;
-                IsPostpone = returnedRecord.IsPostpone;
-                PostponeDate = returnedRecord.PostponeDate;
-            }
-
-            public Guid UserId { get; private set; }
-            public Guid BookId { get; private set; }
-            public DateTime ReturnDate { get; private set; }
-            public bool IsPostpone { get; private set; }
-            public TimeSpan PostponeDate { get; private set; }
+            public List<BorrowedRecord> BookBorrowedRecords { get; private set; }
+            public List<ReturnedRecord> BookReturnedRecords { get; private set; }
         }
     }
 }

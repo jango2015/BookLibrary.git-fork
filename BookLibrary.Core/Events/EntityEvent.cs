@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace BookLibrary.Core.Event
+﻿namespace BookLibrary.Core.Events
 {
     public interface IEntityCreatedEvent { }
     public interface IEntityUpdatedEvent { }

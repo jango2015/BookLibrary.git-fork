@@ -76,9 +76,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="User\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\BookLibrary.QueryModel\BookLibrary.QueryModel.csproj">
       <Project>{2B3DEE42-9E17-42C8-ABBA-B064189E95B2}</Project>

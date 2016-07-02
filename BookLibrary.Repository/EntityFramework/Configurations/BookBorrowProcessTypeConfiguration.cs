@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
-using BookLibrary.Domain.BookManageProcess;
+using BookLibrary.Domain.BorrowedProcess;
 
 namespace BookLibrary.Repository.EntityFramework.Configurations
 {

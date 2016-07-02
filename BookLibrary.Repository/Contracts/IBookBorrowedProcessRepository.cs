@@ -1,5 +1,5 @@
 ﻿using BookLibrary.Core;
-using BookLibrary.Domain.BookManageProcess;
+using BookLibrary.Domain.BorrowedProcess;
 
 namespace BookLibrary.Repository.Contracts
 {

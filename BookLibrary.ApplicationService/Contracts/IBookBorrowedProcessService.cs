@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using BookLibrary.Domain.BookManageProcess;
 
 namespace BookLibrary.ApplicationService.Contracts
 {

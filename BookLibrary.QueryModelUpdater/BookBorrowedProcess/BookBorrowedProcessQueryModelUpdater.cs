@@ -4,7 +4,9 @@ using BookLibrary.QueryModel;
 
 namespace BookLibrary.QueryModelUpdater.BookBorrowedProcess
 {
-    public class BookBorrowedProcessQueryModelUpdater:IHandleMessage<BookBorrowedProcessCreatedEvent>
+    public class BookBorrowedProcessQueryModelUpdater:
+        IHandleMessage<BookBorrowedProcessEvent.BookBorrowedProcessCreatedEvent>,
+        IHandleMessage<BookBorrowedProcessEvent.BookBorrowedProcessUpdatedEvent>
     {
         private readonly IQueryModelUpdaterSession _updaterSession;
 
@@ -13,7 +15,14 @@ namespace BookLibrary.QueryModelUpdater.BookBorrowedProcess
             _updaterSession = updaterSession;
         }
 
-        public void Handle(BookBorrowedProcessCreatedEvent message)
+        public void Handle(BookBorrowedProcessEvent.BookBorrowedProcessCreatedEvent message)
+        {
+            var model = new BorrowedBookProcessModel(message);
+
+            _updaterSession.Save(model);
+        }
+
+        public void Handle(BookBorrowedProcessEvent.BookBorrowedProcessUpdatedEvent message)
         {
             var model = new BorrowedBookProcessModel(message);
 

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using BookLibrary.Domain.BookManageProcess;
+using BookLibrary.Domain.BorrowedProcess;
 
 namespace BookLibrary.DomainService.Contracts
 {

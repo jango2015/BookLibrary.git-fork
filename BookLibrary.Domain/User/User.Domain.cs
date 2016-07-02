@@ -27,7 +27,7 @@ namespace BookLibrary.Domain.User
                 LastLoginDateTime = DateTime.Now
             };
 
-            EventRaiser.RaiseEvent(new UserCreatedEvent(user));
+            EventRaiser.RaiseEvent(new UserEvent.UserCreatedEvent(user));
             
             return user;
         }
@@ -41,7 +41,7 @@ namespace BookLibrary.Domain.User
             {
                 LastLoginDateTime = DateTime.Now;
 
-                EventRaiser.RaiseEvent(new UserUpdatedEvent(this));
+                EventRaiser.RaiseEvent(new UserEvent.UserUpdatedEvent(this));
 
                 return true;
             }

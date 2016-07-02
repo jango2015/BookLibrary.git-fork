@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using BookLibrary.Core;
 using BookLibrary.Domain.Book;
-using BookLibrary.Domain.BookManageProcess;
+using BookLibrary.Domain.BorrowedProcess;
 using BookLibrary.DomainService.Contracts;
 using BookLibrary.Repository.Contracts;
 

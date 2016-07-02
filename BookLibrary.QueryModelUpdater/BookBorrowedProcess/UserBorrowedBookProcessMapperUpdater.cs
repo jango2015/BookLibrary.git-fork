@@ -3,7 +3,7 @@ using BookLibrary.Domain.Events.BookBorrowedProcess;
 
 namespace BookLibrary.QueryModelUpdater.BookBorrowedProcess
 {
-    public class UserBorrowedBookProcessMapperUpdater:IHandleMessage<BookBorrowedProcessCreatedEvent>
+    public class UserBorrowedBookProcessMapperUpdater:IHandleMessage<BookBorrowedProcessEvent.BookBorrowedProcessCreatedEvent>
     {
         private readonly IQueryModelUpdaterSession _updaterSession;
 
@@ -12,7 +12,7 @@ namespace BookLibrary.QueryModelUpdater.BookBorrowedProcess
             _updaterSession = updaterSession;
         }
 
-        public void Handle(BookBorrowedProcessCreatedEvent message)
+        public void Handle(BookBorrowedProcessEvent.BookBorrowedProcessCreatedEvent message)
         {
             
         }

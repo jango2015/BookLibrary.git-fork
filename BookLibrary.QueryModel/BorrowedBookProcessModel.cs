@@ -7,7 +7,16 @@ namespace BookLibrary.QueryModel
 {
     public class BorrowedBookProcessModel
     {
-        public BorrowedBookProcessModel(BookBorrowedProcessCreatedEvent evt)
+        public BorrowedBookProcessModel(BookBorrowedProcessEvent.BookBorrowedProcessCreatedEvent evt)
+        {
+            BookBorrowedProcessId = evt.BookBorrowedProcessId;
+            UserId = evt.UserId;
+            BorrowDate = evt.BorrowDate;
+            BookBorrowedRecords = evt.BookBorrowedRecords.Select(x => new BorrowedRecord(x)).ToList();
+            BookReturnedRecords = evt.BookReturnedRecords.Select(x => new ReturnedRecord(x)).ToList();
+        }
+
+        public BorrowedBookProcessModel(BookBorrowedProcessEvent.BookBorrowedProcessUpdatedEvent evt)
         {
             BookBorrowedProcessId = evt.BookBorrowedProcessId;
             UserId = evt.UserId;
@@ -26,7 +35,7 @@ namespace BookLibrary.QueryModel
         {
             [Obsolete("for serilization")]
             public BorrowedRecord() { }
-            public BorrowedRecord(BookBorrowedProcessCreatedEvent.BorrowedRecord borrowedRecord)
+            public BorrowedRecord(BookBorrowedProcessEvent.BorrowedRecord borrowedRecord)
             {
                 UserId = borrowedRecord.UserId;
                 BookId = borrowedRecord.BookId;
@@ -45,7 +54,7 @@ namespace BookLibrary.QueryModel
             [Obsolete("for serilization")]
             public ReturnedRecord() { }
 
-            public ReturnedRecord(BookBorrowedProcessCreatedEvent.ReturnedRecord returnedRecord)
+            public ReturnedRecord(BookBorrowedProcessEvent.ReturnedRecord returnedRecord)
             {
                 UserId = returnedRecord.UserId;
                 BookId = returnedRecord.BookId;

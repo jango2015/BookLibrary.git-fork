@@ -1,5 +1,4 @@
 ﻿using System;
-using BookLibrary.Core.Event;
 using BookLibrary.Core.Uow;
 using Castle.Core.Internal;
 
