@@ -32,7 +32,10 @@ namespace BookLibrary.Core.ServiceBus
 
         private List<ActionReference> CreateActions(Type targetType)
         {
-            var interfaceArguments = targetType.GetType().GetInterfaces().Select(i => i.GetGenericArguments().First());
+            var interfaceArguments = targetType.GetInterfaces()
+                .Where(i=>i.IsGenericType&&i.GetGenericTypeDefinition()==typeof(IHandleMessage<>))
+                .Select(i => i.GetGenericArguments().First());
+
             var actionReferences = new List<ActionReference>();
             foreach (var messageType in interfaceArguments)
             {

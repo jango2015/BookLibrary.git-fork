@@ -65,10 +65,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookBorrowedProcess\BookBorrowedProcessQueryModelUpdater.cs" />
+    <Compile Include="BookBorrowedProcess\UserBorrowedBookProcessMapperUpdater.cs" />
     <Compile Include="ContainerInstallers\QueryModelUpdaterInstaller.cs" />
     <Compile Include="ContainerInstallers\QueryModelUpdaterSessionInstaller.cs" />
     <Compile Include="IQueryModelUpdaterSession.cs" />
-    <Compile Include="QueryModelUpdater.cs" />
     <Compile Include="QueryModelUpdaterSession.cs" />
     <Compile Include="User\UserQueryModelUpdater.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

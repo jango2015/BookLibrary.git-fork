@@ -41,8 +41,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BorrowedBookProcessModel.cs" />
+    <Compile Include="UserBorrowedBookProcessMapper.cs" />
     <Compile Include="UserQueryModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BookLibrary.Core\BookLibrary.Core.csproj">
+      <Project>{AE6CB151-5405-433A-9378-A02BEA4D93F9}</Project>
+      <Name>BookLibrary.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookLibrary.Domain\BookLibrary.Domain.csproj">
+      <Project>{D1418E2F-25C7-41BB-B705-7E5CFDB0B186}</Project>
+      <Name>BookLibrary.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,4 +1,6 @@
-﻿using ServiceStack.Redis;
+﻿using System.Collections.Generic;
+using ServiceStack;
+using ServiceStack.Redis;
 
 namespace BookLibrary.QueryModelUpdater
 {
@@ -30,6 +32,21 @@ namespace BookLibrary.QueryModelUpdater
                 modelClient.DeleteById(key);
             }
         }
-      
+
+        public void AddToList(string key, string item)
+        {
+            using (IRedisClient client = new RedisClient())
+            {
+                client.AddItemToList(key,item);
+            }
+        }
+
+        public List<string> GetAllItem(string key)
+        {
+            using (IRedisClient client = new RedisClient())
+            {
+                return client.GetAllItemsFromList(key);
+            }
+        }
     }
 }

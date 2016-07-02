@@ -38,7 +38,6 @@ namespace Redis.Practice.Tests
                 //Let's get back an IList<BlogPost> wrapper around a Redis server-side List.
                 var recentPosts = redisBlogPosts.Lists["urn:BlogPost:RecentPosts"];
                 var recentComments = redisComments.Lists["urn:BlogPostComment:RecentComments"];
-
                 foreach (var newBlogPost in newIncomingBlogPosts)
                 {
                     //Prepend the new blog posts to the start of the 'RecentPosts' list

@@ -24,6 +24,7 @@ namespace BookLibrary.Domain.Events.BookBorrowedProcess
 
         public Guid BookBorrowedProcessId { get; private set; }
         public Guid UserId { get; private set; }
+        public DateTime BorrowDate { get; private set; }
         public  List<BorrowedRecord> BookBorrowedRecords { get; private set; }
         public  List<ReturnedRecord> BookReturnedRecords { get; private set; }
 
