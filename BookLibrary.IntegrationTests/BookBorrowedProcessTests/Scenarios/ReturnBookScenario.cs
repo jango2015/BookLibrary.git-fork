@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using BookLibrary.ApplicationService.Contracts;
 using BookLibrary.DomainModel;
 using Castle.Windsor;
@@ -11,8 +12,9 @@ namespace BookLibrary.IntegrationTests.BookBorrowedProcessTests.Scenarios
         {
             var borrowBookScenario=new BorrowBookScenario(container);
             borrowBookScenario.Execute();
+
             UserId = borrowBookScenario.UserId;
-            BookId = borrowBookScenario.BookId;
+            BookId = borrowBookScenario.BookIds.First();
             GivingUserModel = borrowBookScenario.GivingUserModel;
             GivingBookModel = borrowBookScenario.GivingBookModel;
         }

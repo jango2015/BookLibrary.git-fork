@@ -81,10 +81,6 @@
       <Project>{ae6cb151-5405-433a-9378-a02bea4d93f9}</Project>
       <Name>BookLibrary.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BookLibrary.Domain.Events\BookLibrary.Domain.Events.csproj">
-      <Project>{7F1AD6F2-741A-4965-BAED-C322539E5A5F}</Project>
-      <Name>BookLibrary.Domain.Events</Name>
-    </ProjectReference>
     <ProjectReference Include="..\BookLibrary.Domain\BookLibrary.Domain.csproj">
       <Project>{d1418e2f-25c7-41bb-b705-7e5cfdb0b186}</Project>
       <Name>BookLibrary.Domain</Name>

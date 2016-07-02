@@ -5,56 +5,33 @@ using BookLibrary.ApplicationService.Exceptions;
 using BookLibrary.Core;
 using BookLibrary.Core.ServiceBus;
 using BookLibrary.Core.Uow;
-using BookLibrary.Domain.User;
 using BookLibrary.DomainModel;
-using BookLibrary.Repository.Contracts;
+using BookLibrary.DomainService.Contracts;
 
 namespace BookLibrary.ApplicationService.Implements
 {
     public class UserService : ApplicationService, IUserService
     {
-        private readonly IUserRepository _userRepository;
-        private readonly IEmailUniqueChecker _emailUniqueChecker;
+        private readonly IUserDomainService _userDomainService;
 
-        public UserService(IRepositoryContext context, IUserRepository userRepository,IEmailUniqueChecker emailUniqueChecker)
-          : base(context)
+        public UserService(IUserDomainService userDomainService)
         {
-            _userRepository = userRepository;
-            _emailUniqueChecker = emailUniqueChecker;
+            _userDomainService = userDomainService;
         }
 
         public Guid Register(UserModel userModel)
         {
-            var user = User.Register(userModel, _emailUniqueChecker);
-            _userRepository.Add(user);
-
-            return user.Id;
+            return _userDomainService.Register(userModel);
         }
 
         public bool Login(string email, string password)
         {
-            var user = _userRepository.Find(x => x.Email.ToLower() == email.ToLower()).FirstOrDefault();
-            if (user == null)
-            {
-                throw  new ApplicationServiceException("no such user");
-            }
-            if (!user.Login(password))
-            {
-                return false;
-            }
-
-            _userRepository.Update(user);
-
-            return true;
+            return _userDomainService.Login(email, password);
         }
 
         public void ChangePassword(Guid id, string originalPassword, string newPassword)
         {
-            var user = _userRepository.Get(id);
-
-            user.ChangePassword(originalPassword,newPassword);
-
-            _userRepository.Update(user);
+             _userDomainService.ChangePassword(id, originalPassword,newPassword);
         }
     }
 }

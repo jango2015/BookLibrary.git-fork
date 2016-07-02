@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookBorrowedProcess\BookBorrowedProcessCreatedEvent.cs" />
     <Compile Include="IBookLibraryEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User\UserCreatedEvent.cs" />

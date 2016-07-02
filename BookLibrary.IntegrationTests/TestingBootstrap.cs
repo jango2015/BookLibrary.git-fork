@@ -2,6 +2,7 @@
 using BookLibrary.ApplicationService.UowHelper;
 using BookLibrary.Core;
 using BookLibrary.Core.ContainerInstallers;
+using BookLibrary.DomainService.ContainerInstallers;
 using BookLibrary.IntegrationTests.WindsorContainer;
 using BookLibrary.QueryModelReader.ContainerInstallers;
 using BookLibrary.QueryModelUpdater.ContainerInstallers;
@@ -27,9 +28,10 @@ namespace BookLibrary.IntegrationTests
                 _container.Register(Component.For<IWindsorContainer>().Instance(_container));
 
                 _container.Install(FromAssembly.This());
-                _container.Install(FromAssembly.Containing<ApplicationServiceInstaller>());
-                _container.Install(FromAssembly.Containing<RepositoryContextInstaller>());
                 _container.Install(FromAssembly.Containing<UowInstaller>());
+                _container.Install(FromAssembly.Containing<RepositoryContextInstaller>());
+                _container.Install(FromAssembly.Containing<DomainServiceInstaller>());
+                _container.Install(FromAssembly.Containing<ApplicationServiceInstaller>());
                 _container.Install(FromAssembly.Containing<QueryModelUpdaterInstaller>());
                 _container.Install(FromAssembly.Containing<QueryModelReaderSessionInstaller>());
             }

@@ -89,14 +89,17 @@
     <Compile Include="BookManageProcess\ReturnedRecord.cs" />
     <Compile Include="Book\Book.cs" />
     <Compile Include="Book\Book.Domain.cs" />
+    <Compile Include="Events\BookBorrowedProcess\BookBorrowedProcessCreatedEvent.cs" />
+    <Compile Include="Events\BookBorrowedProcess\BookBorrowedProcessUpdatedEvent.cs" />
+    <Compile Include="Events\IBookLibraryEvent.cs" />
+    <Compile Include="Events\User\UserCreatedEvent.cs" />
+    <Compile Include="Events\User\UserUpdatedEvent.cs" />
     <Compile Include="Exceptions\BookNotEnoughException.cs" />
     <Compile Include="Exceptions\BorrowSameBookTwiceException.cs" />
     <Compile Include="Exceptions\DomainException.cs" />
-    <Compile Include="Exceptions\DuplicateEmailException.cs" />
     <Compile Include="Exceptions\OriginalPasswordIsWrongException.cs" />
     <Compile Include="Exceptions\PasswordDoesNotMatchPolicyException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User\IEmailUniqueChecker.cs" />
     <Compile Include="User\Password.cs" />
     <Compile Include="User\User.cs" />
     <Compile Include="User\User.Domain.cs" />
@@ -105,10 +108,6 @@
     <ProjectReference Include="..\BookLibrary.Core\BookLibrary.Core.csproj">
       <Project>{AE6CB151-5405-433A-9378-A02BEA4D93F9}</Project>
       <Name>BookLibrary.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BookLibrary.Domain.Events\BookLibrary.Domain.Events.csproj">
-      <Project>{7F1AD6F2-741A-4965-BAED-C322539E5A5F}</Project>
-      <Name>BookLibrary.Domain.Events</Name>
     </ProjectReference>
     <ProjectReference Include="..\BookLibrary.DomainModel\BookLibrary.DomainModel.csproj">
       <Project>{D9A0F51C-7AEB-4844-AE54-260D14D87C95}</Project>

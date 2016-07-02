@@ -3,27 +3,21 @@ using BookLibrary.ApplicationService.Contracts;
 using BookLibrary.Core;
 using BookLibrary.Domain.Book;
 using BookLibrary.DomainModel;
-using BookLibrary.Repository.Contracts;
 
 namespace BookLibrary.ApplicationService.Implements
 {
     public class BookService:ApplicationService,IBookService
     {
-        private readonly IBookRepository _bookRepository;
+        private readonly DomainService.Contracts.IBookService _bookService;
 
-        public BookService(IRepositoryContext context,IBookRepository bookRepository) : base(context)
+        public BookService(DomainService.Contracts.IBookService bookService)
         {
-            _bookRepository = bookRepository;
+            _bookService = bookService;
         }
 
         public Guid AddNewBook(BookModel bookModel)
         {
-            var book = Book.NewBook(bookModel);
-
-            _bookRepository.Add(book);
-
-            return book.Id;
+           return _bookService.AddNewBook(bookModel);
         }
-       
     }
 }

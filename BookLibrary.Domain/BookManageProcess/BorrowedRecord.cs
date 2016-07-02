@@ -8,16 +8,17 @@ namespace BookLibrary.Domain.BookManageProcess
         [Obsolete("for serialization")]
         public BorrowedRecord() { }
 
-        public BorrowedRecord(Guid userId, Book.Book book, TimeSpan borrowInterval)
+        public BorrowedRecord(BookBorrowedProcess bookBorrowedProcess, Guid userId, Book.Book book, TimeSpan borrowInterval)
         {
             Id = Guid.NewGuid();
 
+            BookBorrowedProcess = bookBorrowedProcess;
             UserId = userId;
             Book = book;
             BorrowInterval = borrowInterval;
             BorrowDate=DateTime.Now;
         }
-
+        public BookBorrowedProcess BookBorrowedProcess { get; set; }
          public Guid UserId { get; private set; }
          public Book.Book Book { get; private set; }
          public DateTime BorrowDate { get; private set; }

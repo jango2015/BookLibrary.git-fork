@@ -52,6 +52,7 @@
     <Compile Include="ContainerInstallers\ServiceBusInstaller.cs" />
     <Compile Include="ContainerInstallers\UowInstaller.cs" />
     <Compile Include="Entity.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Extensions\Seq.cs" />
     <Compile Include="IAggregateRoot.cs" />
     <Compile Include="IEntity.cs" />

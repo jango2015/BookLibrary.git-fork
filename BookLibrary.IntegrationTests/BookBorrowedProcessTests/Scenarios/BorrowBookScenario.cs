@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BookLibrary.ApplicationService.Contracts;
 using BookLibrary.DomainModel;
 using BookLibrary.IntegrationTests.BookTests.Scenarios;
@@ -11,6 +12,8 @@ namespace BookLibrary.IntegrationTests.BookBorrowedProcessTests.Scenarios
     {
         public BorrowBookScenario(IWindsorContainer container) : base(container)
         {
+            BookIds=new List<Guid>();
+
             var registerUserScenario = new RegisterUserScenario(container);
             registerUserScenario.Execute();
             UserId = registerUserScenario.Id;
@@ -18,7 +21,7 @@ namespace BookLibrary.IntegrationTests.BookBorrowedProcessTests.Scenarios
 
             var bookAddScenario=new BookAddScenario(container);
             bookAddScenario.Execute();
-            BookId = bookAddScenario.Id;
+            BookIds.Add(bookAddScenario.Id);
             GivingBookModel = bookAddScenario.GivingModel;
         }
 
@@ -26,7 +29,7 @@ namespace BookLibrary.IntegrationTests.BookBorrowedProcessTests.Scenarios
 
         public BookModel GivingBookModel { get; private set; }
 
-        public Guid BookId { get; private set; }
+        public List<Guid> BookIds { get; private set; }
 
         public Guid UserId { get; private set; }
 
@@ -34,7 +37,7 @@ namespace BookLibrary.IntegrationTests.BookBorrowedProcessTests.Scenarios
         {
             var bookManageService = Container.Resolve<IBookBorrowedProcessService>();
 
-            bookManageService.BorrowBook(UserId,BookId,TimeSpan.FromDays(1));
+            bookManageService.BorrowBooks(UserId, BookIds, TimeSpan.FromDays(1));
         }
     }
 }

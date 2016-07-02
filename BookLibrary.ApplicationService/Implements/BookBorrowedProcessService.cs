@@ -1,55 +1,26 @@
 ﻿using System;
-using System.Linq;
+using System.Collections.Generic;
 using BookLibrary.ApplicationService.Contracts;
-using BookLibrary.Domain.BookManageProcess;
-using BookLibrary.Repository.Contracts;
-using BookLibrary.Repository.EntityFramework;
 
 namespace BookLibrary.ApplicationService.Implements
 {
-    public class BookBorrowedProcessService:EntityFrameworkRepository<BookBorrowedProcess>, IBookBorrowedProcessService
+    public class BookBorrowedProcessService:ApplicationService, IBookBorrowedProcessService
     {
-        private readonly IBookBorrowedProcessRepository _bookBorrowedProcessRepository;
-        private readonly IBookRepository _bookRepository;
+        private readonly DomainService.Contracts.IBookBorrowedProcessService _bookBookBorrowedProcessService;
 
-        public BookBorrowedProcessService(IEntityFrameworkContext efContext,
-            IBookBorrowedProcessRepository bookBorrowedProcessRepository,
-            IBookRepository bookRepository
-            ) : base(efContext)
+        public BookBorrowedProcessService(DomainService.Contracts.IBookBorrowedProcessService bookBookBorrowedProcessService)
         {
-            _bookBorrowedProcessRepository = bookBorrowedProcessRepository;
-            _bookRepository = bookRepository;
+            _bookBookBorrowedProcessService = bookBookBorrowedProcessService;
         }
 
-        public BookBorrowedProcess GetBookBorrowedProcess(Guid userId)
+        public void BorrowBooks(Guid userId, List<Guid> bookIds, TimeSpan borrowInterval)
         {
-            var borrowedProcess = _bookBorrowedProcessRepository.Find(x => x.UserId == userId).FirstOrDefault();
-
-            return borrowedProcess;
-        }
-
-        public void BorrowBook(Guid userId, Guid bookId, TimeSpan borrowInterval)
-        {
-            var book = _bookRepository.Get(bookId);
-            var borrowedProcess = GetBookBorrowedProcess(userId);
-            if (borrowedProcess == null)
-            {
-                borrowedProcess=BookBorrowedProcess.StartNewProcess(userId);
-            }
-
-            borrowedProcess.BorrowBook(book,borrowInterval);
-
-            _bookBorrowedProcessRepository.Add(borrowedProcess);
+            _bookBookBorrowedProcessService.BorrowBooks(userId,bookIds,borrowInterval);
         }
 
         public void ReturnBook(Guid userId, Guid bookId)
         {
-            var bookBorrowedProcess = GetBookBorrowedProcess(userId);
-            var book = _bookRepository.Get(bookId);
-
-            bookBorrowedProcess.ReturnBook(book);
-
-            _bookBorrowedProcessRepository.Update(bookBorrowedProcess);
+            _bookBookBorrowedProcessService.ReturnBook(userId,bookId);
         }
     }
 }

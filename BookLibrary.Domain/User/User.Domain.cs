@@ -10,14 +10,9 @@ namespace BookLibrary.Domain.User
 {
     public partial class User
     {
-        public static User Register(UserModel userModel, IEmailUniqueChecker emailUniqueChecker)
+        public static User Register(UserModel userModel)
         {
             Contract.Requires(!userModel.Name.IsNullOrEmpty(), "invalid username");
-
-            if (emailUniqueChecker.IsExist(userModel.Email))
-            {
-                throw new DuplicateEmailException("email already exist, please input another one");
-            }
 
             var password=new Password(userModel.Password);
 
@@ -32,7 +27,7 @@ namespace BookLibrary.Domain.User
                 LastLoginDateTime = DateTime.Now
             };
 
-            EventRaiser.RaiseEvent(new UserCreatedEvent(id:user.Id,name:user.Name,email:user.Email,registerDateTime:user.RegisterDateTime,lastLoginDateTime:user.LastLoginDateTime));
+            EventRaiser.RaiseEvent(new UserCreatedEvent(user));
             
             return user;
         }
@@ -46,7 +41,7 @@ namespace BookLibrary.Domain.User
             {
                 LastLoginDateTime = DateTime.Now;
 
-                EventRaiser.RaiseEvent(new UserUpdatedEvent(id:Id,name:Name,email:Email,registerDateTime:RegisterDateTime,lastLoginDateTime:LastLoginDateTime));
+                EventRaiser.RaiseEvent(new UserUpdatedEvent(this));
 
                 return true;
             }

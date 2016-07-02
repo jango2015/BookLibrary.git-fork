@@ -8,10 +8,11 @@ namespace BookLibrary.Domain.BookManageProcess
         [Obsolete("for serialization")]
         public ReturnedRecord() { }
 
-        public ReturnedRecord(Guid userId, Book.Book book,BorrowedRecord borrowedRecord)
+        public ReturnedRecord(BookBorrowedProcess bookBorrowedProcess, Guid userId, Book.Book book,BorrowedRecord borrowedRecord)
         {
             Id = Guid.NewGuid();
 
+            BookBorrowedProcess = bookBorrowedProcess;
             UserId = userId;
             Book = book;
             ReturnDate=DateTime.Now;
@@ -29,6 +30,7 @@ namespace BookLibrary.Domain.BookManageProcess
             }
         }
 
+        public BookBorrowedProcess BookBorrowedProcess { get; private set; }
         public Guid UserId { get; private set; }
          public Book.Book Book { get; private set; }
          public DateTime ReturnDate { get; private set; }

@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
+using BookLibrary.Core.Extensions;
+using BookLibrary.Core.ServiceBus;
+using BookLibrary.Domain.Events.BookBorrowedProcess;
 using BookLibrary.Domain.Exceptions;
 
 namespace BookLibrary.Domain.BookManageProcess
@@ -12,11 +16,22 @@ namespace BookLibrary.Domain.BookManageProcess
             return new BookBorrowedProcess(userId);
         }
 
-        public void BorrowBook(Book.Book book,TimeSpan borrowInterval)
+        public void BorrowBooks(List<Book.Book> books, TimeSpan borrowInterval)
         {
-            Contract.Requires(book!=null,"book!=null");
-            Contract.Requires(borrowInterval>=TimeSpan.FromDays(1),"borrowInterval>TimeSpan.FromDays(1)");
+            Contract.Requires(books!=null);
+            Contract.Requires(books.Count>0);
+            Contract.Requires(borrowInterval >= TimeSpan.FromDays(1), "borrowInterval>TimeSpan.FromDays(1)");
 
+            foreach (var book in books)
+            {
+                BorrowBook(book,borrowInterval);
+            }
+
+            EventRaiser.RaiseEvent(new BookBorrowedProcessCreatedEvent(this));
+        }
+
+        private void BorrowBook(Book.Book book,TimeSpan borrowInterval)
+        {
             if (book.Number <= 0)
             {
                 throw new BookNotEnoughException($"book:{book.Name} is not enough");
@@ -28,7 +43,7 @@ namespace BookLibrary.Domain.BookManageProcess
             }
 
             book.Borrow();
-            var record = new BorrowedRecord(UserId, book, borrowInterval);
+            var record = new BorrowedRecord(this,UserId, book, borrowInterval);
             BookBorrowedRecords.Add(record);
         }
 
@@ -36,11 +51,19 @@ namespace BookLibrary.Domain.BookManageProcess
         {
             Contract.Requires(book != null, "book!=null");
 
+            if (BookBorrowedRecords.None(x => x.Book.ISBN == book.ISBN))
+            {
+                throw new DomainException($"Did not borrowed book:{book.Name}");
+            }
+
             var borrowRecord = BookBorrowedRecords.Single(x => x.Book.Id == book.Id);
 
             book.Return();
-            var record=new ReturnedRecord(UserId, book,borrowRecord);
+
+            var record=new ReturnedRecord(this,UserId, book,borrowRecord);
             BookReturnedRecords.Add(record);
+
+            EventRaiser.RaiseEvent(new BookBorrowedProcessUpdatedEvent(this));
         }
     }
 }

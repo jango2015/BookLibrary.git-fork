@@ -1,6 +1,7 @@
 ﻿using System;
 using BookLibrary.Domain.Exceptions;
 using BookLibrary.DomainModel;
+using BookLibrary.DomainService.Exceptions;
 using BookLibrary.IntegrationTests.UserTests.Scenarios;
 using FluentAssertions;
 using Xunit;
