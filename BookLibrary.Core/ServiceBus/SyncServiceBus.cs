@@ -14,10 +14,11 @@ namespace BookLibrary.Core.ServiceBus
 
         public void Publish<TMessage>(TMessage message)
         {
-            var handlers = _container.ResolveAll<IMessageHandler<TMessage>>();
+            var handlers = _container.ResolveAll<IHandleMessage<TMessage>>();
+            var syncHandlerInvoker=new SyncHandlerInvoker();
             foreach (var messageHandler in handlers)
             {
-                messageHandler.Handle(message);
+                syncHandlerInvoker.Invoke(messageHandler,message);
                 _container.Release(messageHandler);
             }
         }

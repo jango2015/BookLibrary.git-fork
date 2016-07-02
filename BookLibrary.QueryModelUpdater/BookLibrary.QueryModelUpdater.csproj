@@ -70,7 +70,7 @@
     <Compile Include="IQueryModelUpdaterSession.cs" />
     <Compile Include="QueryModelUpdater.cs" />
     <Compile Include="QueryModelUpdaterSession.cs" />
-    <Compile Include="User\UserQueryModelCreatedUpdater.cs" />
+    <Compile Include="User\UserQueryModelUpdater.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

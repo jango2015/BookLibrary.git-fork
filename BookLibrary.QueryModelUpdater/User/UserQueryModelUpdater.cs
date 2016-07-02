@@ -6,11 +6,11 @@ using BookLibrary.QueryModel;
 
 namespace BookLibrary.QueryModelUpdater.User
 {
-    public  class UserQueryModelCreatedUpdater : IMessageHandler<UserCreatedEvent>
+    public  class UserQueryModelUpdater : IHandleMessage<UserCreatedEvent>
     {
         private readonly IQueryModelUpdaterSession _session;
 
-        public UserQueryModelCreatedUpdater(IQueryModelUpdaterSession session)
+        public UserQueryModelUpdater(IQueryModelUpdaterSession session)
         {
             _session = session;
         }

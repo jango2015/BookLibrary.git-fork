@@ -64,8 +64,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="ServiceBus\EventRaiser.cs" />
-    <Compile Include="ServiceBus\IMessageHandler.cs" />
+    <Compile Include="ServiceBus\IHandleMessage.cs" />
     <Compile Include="ServiceBus\IServiceBus.cs" />
+    <Compile Include="ServiceBus\SyncHandlerInvoker.cs" />
     <Compile Include="ServiceBus\SyncServiceBus.cs" />
     <Compile Include="Uow\CurrentUnitOfWorkProvider.cs" />
     <Compile Include="Uow\DefaultUnitOfWorkOptions.cs" />

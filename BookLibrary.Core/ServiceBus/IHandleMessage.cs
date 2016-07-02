@@ -1,6 +1,6 @@
 ﻿namespace BookLibrary.Core.ServiceBus
 {
-    public interface IMessageHandler<in TMessage>
+    public interface IHandleMessage<in TMessage>
     {
         void Handle(TMessage message);
     }
