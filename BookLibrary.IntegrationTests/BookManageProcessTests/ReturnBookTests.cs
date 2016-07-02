@@ -19,9 +19,9 @@ namespace BookLibrary.IntegrationTests.BookManageProcessTests
 
             //Assert
             var process = BookBorrowedProcessService.GetBookBorrowedProcess(returnBookScenario.UserId);
-            process.ReturnedBookRecords.Count.Should().Be(1);
+            process.BookReturnedRecords.Count.Should().Be(1);
 
-            var returnRecord = process.ReturnedBookRecords.First();
+            var returnRecord = process.BookReturnedRecords.First();
             returnRecord.Book.Number.Should().Be(returnBookScenario.GivingBookModel.Number);
             returnRecord.IsPostpone.Should().Be(false);
 

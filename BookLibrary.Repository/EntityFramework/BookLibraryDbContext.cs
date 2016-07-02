@@ -48,11 +48,11 @@ namespace BookLibrary.Repository.EntityFramework
 
         public DbSet<User> Users { get; set; }
 
-        public DbSet<BookBorrowedProcess> BookManageProcesses { get; set; } 
+        public DbSet<BookBorrowedProcess> BookBorrowedProcesses { get; set; } 
 
-        public DbSet<BorrowedRecord> BorrowRecords { get; set; } 
+        public DbSet<BorrowedRecord> BookBorrowedRecords { get; set; } 
 
-        public DbSet<ReturnedRecord> ReturnBookRecords { get; set; }
+        public DbSet<ReturnedRecord> BookReturnedRecords { get; set; }
 
 
     }

@@ -9,8 +9,8 @@ namespace BookLibrary.Domain.BookManageProcess
         [Obsolete("for serialization")]
         public BookBorrowedProcess()
         {
-            BorrowedBookRecords = new List<BorrowedRecord>();
-            ReturnedBookRecords = new List<ReturnedRecord>();
+            BookBorrowedRecords = new List<BorrowedRecord>();
+            BookReturnedRecords = new List<ReturnedRecord>();
         }
 
         public BookBorrowedProcess(Guid userId) : this()
@@ -20,8 +20,8 @@ namespace BookLibrary.Domain.BookManageProcess
         }
 
         public Guid UserId { get; private set; }
-        public List<BorrowedRecord> BorrowedBookRecords { get; private set; }
-        public List<ReturnedRecord> ReturnedBookRecords { get; private set; }
+        public virtual List<BorrowedRecord> BookBorrowedRecords { get; private set; }
+        public virtual List<ReturnedRecord> BookReturnedRecords { get; private set; }
 
 
     }

@@ -20,8 +20,8 @@ namespace BookLibrary.IntegrationTests.BookManageProcessTests
 
             //Assert
             var process = BookBorrowedProcessService.GetBookBorrowedProcess(borrowBookScenario.UserId);
-            process.BorrowedBookRecords.Count.Should().Be(1);
-            process.BorrowedBookRecords.First().Book.Number.Should().Be(borrowBookScenario.GivingBookModel.Number - 1);
+            process.BookBorrowedRecords.Count.Should().Be(1);
+            process.BookBorrowedRecords.First().Book.Number.Should().Be(borrowBookScenario.GivingBookModel.Number - 1);
          }
 
         [Fact]

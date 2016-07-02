@@ -22,25 +22,25 @@ namespace BookLibrary.Domain.BookManageProcess
                 throw new BookNotEnoughException($"book:{book.Name} is not enough");
             }
 
-            if(BorrowedBookRecords.Any(x=>x.Book.ISBN==book.ISBN))
+            if(BookBorrowedRecords.Any(x=>x.Book.ISBN==book.ISBN))
             {
                 throw new BorrowSameBookTwiceException($"already have borrowed record for book:{book.Name}");
             }
 
             book.Borrow();
             var record = new BorrowedRecord(UserId, book, borrowInterval);
-            BorrowedBookRecords.Add(record);
+            BookBorrowedRecords.Add(record);
         }
 
         public void ReturnBook(Book.Book book)
         {
             Contract.Requires(book != null, "book!=null");
 
-            var borrowRecord = BorrowedBookRecords.Single(x => x.Book.Id == book.Id);
+            var borrowRecord = BookBorrowedRecords.Single(x => x.Book.Id == book.Id);
 
             book.Return();
             var record=new ReturnedRecord(UserId, book,borrowRecord);
-            ReturnedBookRecords.Add(record);
+            BookReturnedRecords.Add(record);
         }
     }
 }
