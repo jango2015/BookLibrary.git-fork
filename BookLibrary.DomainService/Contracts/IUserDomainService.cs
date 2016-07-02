@@ -3,7 +3,7 @@ using BookLibrary.DomainModel;
 
 namespace BookLibrary.DomainService.Contracts
 {
-    public interface IUserDomainService
+    public interface IUserDomainService:IDomainService
     {
         Guid Register(UserModel userModel);
 

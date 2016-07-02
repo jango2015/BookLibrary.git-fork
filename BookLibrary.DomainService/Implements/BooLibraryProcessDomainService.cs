@@ -9,12 +9,12 @@ using BookLibrary.Repository.Contracts;
 
 namespace BookLibrary.DomainService.Implements
 {
-    public class BooLibraryProcessService:DomainService,IBookLibraryProcessService
+    public class BooLibraryProcessDomainService:DomainService,IBookLibraryProcessDomainService
     {
         private readonly IBookLibraryProcessRepository _bookLibraryProcessRepository;
         private readonly IBookRepository _bookRepository;
 
-        public BooLibraryProcessService(IBookLibraryProcessRepository bookLibraryProcessRepository,
+        public BooLibraryProcessDomainService(IBookLibraryProcessRepository bookLibraryProcessRepository,
             IBookRepository bookRepository,IRepositoryContext context) : base(context)
         {
             _bookLibraryProcessRepository = bookLibraryProcessRepository;

@@ -16,7 +16,7 @@ namespace BookLibrary.IntegrationTests.BookLibraryProcessTests
             returnBookScenario.Execute();
 
             //Assert
-            //var process = BooLibraryProcessService.GetBookLibraryProcess(returnBookScenario.UserId);
+            //var process = BooLibraryProcessDomainService.GetBookLibraryProcess(returnBookScenario.UserId);
             //process.BookReturnedRecords.Count.Should().Be(1);
 
             //var returnRecord = process.BookReturnedRecords.First();

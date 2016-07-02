@@ -8,16 +8,16 @@ namespace BookLibrary.ApplicationService.Implements
 {
     public class BookService:ApplicationService,IBookService
     {
-        private readonly DomainService.Contracts.IBookService _bookService;
+        private readonly DomainService.Contracts.IBookDomainService _bookDomainService;
 
-        public BookService(DomainService.Contracts.IBookService bookService)
+        public BookService(DomainService.Contracts.IBookDomainService bookDomainService)
         {
-            _bookService = bookService;
+            _bookDomainService = bookDomainService;
         }
 
         public Guid AddNewBook(BookModel bookModel)
         {
-           return _bookService.AddNewBook(bookModel);
+           return _bookDomainService.AddNewBook(bookModel);
         }
     }
 }

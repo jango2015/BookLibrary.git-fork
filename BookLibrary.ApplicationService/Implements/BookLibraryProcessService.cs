@@ -6,21 +6,21 @@ namespace BookLibrary.ApplicationService.Implements
 {
     public class BookLibraryProcessService:ApplicationService,IBookLibraryProcessService
     {
-        private readonly DomainService.Contracts.IBookLibraryProcessService _bookLibraryProcessService;
+        private readonly DomainService.Contracts.IBookLibraryProcessDomainService _bookLibraryProcessDomainService;
 
-        public BookLibraryProcessService(DomainService.Contracts.IBookLibraryProcessService bookLibraryProcessService)
+        public BookLibraryProcessService(DomainService.Contracts.IBookLibraryProcessDomainService bookLibraryProcessDomainService)
         {
-            _bookLibraryProcessService = bookLibraryProcessService;
+            _bookLibraryProcessDomainService = bookLibraryProcessDomainService;
         }
 
         public void BorrowBooks(Guid userId, List<Guid> bookIds, TimeSpan borrowInterval)
         {
-            _bookLibraryProcessService.BorrowBooks(userId,bookIds,borrowInterval);
+            _bookLibraryProcessDomainService.BorrowBooks(userId,bookIds,borrowInterval);
         }
 
         public void ReturnBook(Guid userId, Guid bookId)
         {
-            _bookLibraryProcessService.ReturnBook(userId,bookId);
+            _bookLibraryProcessDomainService.ReturnBook(userId,bookId);
         }
     }
 }

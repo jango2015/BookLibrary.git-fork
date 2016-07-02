@@ -4,7 +4,7 @@ using BookLibrary.Domain.BorrowedProcess;
 
 namespace BookLibrary.DomainService.Contracts
 {
-    public interface IBookLibraryProcessService:IDomainService
+    public interface IBookLibraryProcessDomainService:IDomainService
     {
         BookLibraryProcess GetBookLibraryProcess(Guid bookBorrowedProcessId);
 

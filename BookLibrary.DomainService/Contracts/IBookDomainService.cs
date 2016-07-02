@@ -3,7 +3,7 @@ using BookLibrary.DomainModel;
 
 namespace BookLibrary.DomainService.Contracts
 {
-    public interface IBookService:IDomainService
+    public interface IBookDomainService:IDomainService
     {
         Guid AddNewBook(BookModel bookModel);
     }

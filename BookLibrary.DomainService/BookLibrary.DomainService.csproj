@@ -44,15 +44,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContainerInstallers\DomainServiceInstaller.cs" />
-    <Compile Include="Contracts\IBooLibraryProcessService.cs" />
-    <Compile Include="Contracts\IBookService.cs" />
+    <Compile Include="Contracts\IBookLibraryProcessDomainService.cs" />
+    <Compile Include="Contracts\IBookDomainService.cs" />
     <Compile Include="Contracts\IUserDomainService.cs" />
     <Compile Include="DomainService.cs" />
     <Compile Include="Exceptions\DomainServiceException.cs" />
     <Compile Include="Exceptions\DuplicateEmailException.cs" />
     <Compile Include="IDomainService.cs" />
-    <Compile Include="Implements\BooLibraryProcessService.cs" />
-    <Compile Include="Implements\BookService.cs" />
+    <Compile Include="Implements\BooLibraryProcessDomainService.cs" />
+    <Compile Include="Implements\BookDomainService.cs" />
     <Compile Include="Implements\UserDomainService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
