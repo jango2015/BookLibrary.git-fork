@@ -7,11 +7,11 @@ using BookLibrary.Repository.Contracts;
 
 namespace BookLibrary.DomainService.Implements
 {
-    public class BookDomainService:DomainService,IBookDomainService
+    public class BookDomainService:IBookDomainService
     {
         private readonly IBookRepository _bookRepository;
 
-        public BookDomainService(IRepositoryContext context, IBookRepository bookRepository) : base(context)
+        public BookDomainService(IBookRepository bookRepository) 
         {
             _bookRepository = bookRepository;
         }

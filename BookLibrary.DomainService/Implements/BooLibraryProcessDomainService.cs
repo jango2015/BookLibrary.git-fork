@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using BookLibrary.Core;
 using BookLibrary.Domain.Book;
 using BookLibrary.Domain.BorrowedProcess;
 using BookLibrary.DomainService.Contracts;
@@ -9,13 +8,13 @@ using BookLibrary.Repository.Contracts;
 
 namespace BookLibrary.DomainService.Implements
 {
-    public class BooLibraryProcessDomainService:DomainService,IBookLibraryProcessDomainService
+    public class BooLibraryProcessDomainService:IBookLibraryProcessDomainService
     {
         private readonly IBookLibraryProcessRepository _bookLibraryProcessRepository;
         private readonly IBookRepository _bookRepository;
 
         public BooLibraryProcessDomainService(IBookLibraryProcessRepository bookLibraryProcessRepository,
-            IBookRepository bookRepository,IRepositoryContext context) : base(context)
+            IBookRepository bookRepository)
         {
             _bookLibraryProcessRepository = bookLibraryProcessRepository;
             _bookRepository = bookRepository;

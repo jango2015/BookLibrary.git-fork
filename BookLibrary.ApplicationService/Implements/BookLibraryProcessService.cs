@@ -4,7 +4,7 @@ using BookLibrary.ApplicationService.Contracts;
 
 namespace BookLibrary.ApplicationService.Implements
 {
-    public class BookLibraryProcessService:ApplicationService,IBookLibraryProcessService
+    public class BookLibraryProcessService:IBookLibraryProcessService
     {
         private readonly DomainService.Contracts.IBookLibraryProcessDomainService _bookLibraryProcessDomainService;
 

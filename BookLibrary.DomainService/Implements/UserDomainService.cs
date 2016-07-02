@@ -10,12 +10,11 @@ using BookLibrary.Repository.Contracts;
 
 namespace BookLibrary.DomainService.Implements
 {
-    public class UserDomainService:DomainService, IUserDomainService
+    public class UserDomainService:IUserDomainService
     {
         private readonly IUserRepository _userRepository;
 
-        public UserDomainService(IRepositoryContext context, IUserRepository userRepository)
-          : base(context)
+        public UserDomainService(IUserRepository userRepository)
         {
             _userRepository = userRepository;
         }

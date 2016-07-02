@@ -47,7 +47,6 @@
     <Compile Include="Contracts\IBookLibraryProcessDomainService.cs" />
     <Compile Include="Contracts\IBookDomainService.cs" />
     <Compile Include="Contracts\IUserDomainService.cs" />
-    <Compile Include="DomainService.cs" />
     <Compile Include="Exceptions\DomainServiceException.cs" />
     <Compile Include="Exceptions\DuplicateEmailException.cs" />
     <Compile Include="IDomainService.cs" />

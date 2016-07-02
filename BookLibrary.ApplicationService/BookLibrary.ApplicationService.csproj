@@ -48,7 +48,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationService.cs" />
     <Compile Include="ContainerInstallers\ApplicationServiceInstaller.cs" />
     <Compile Include="ContainerInstallers\UnitOfWorkInterceptorInstaller.cs" />
     <Compile Include="Contracts\IBookLibraryProcessService.cs" />

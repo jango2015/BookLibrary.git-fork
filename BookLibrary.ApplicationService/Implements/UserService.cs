@@ -10,7 +10,7 @@ using BookLibrary.DomainService.Contracts;
 
 namespace BookLibrary.ApplicationService.Implements
 {
-    public class UserService : ApplicationService, IUserService
+    public class UserService :  IUserService
     {
         private readonly IUserDomainService _userDomainService;
 

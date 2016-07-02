@@ -6,7 +6,7 @@ using BookLibrary.DomainModel;
 
 namespace BookLibrary.ApplicationService.Implements
 {
-    public class BookService:ApplicationService,IBookService
+    public class BookService:IBookService
     {
         private readonly DomainService.Contracts.IBookDomainService _bookDomainService;
 
