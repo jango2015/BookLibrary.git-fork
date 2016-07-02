@@ -1,16 +1,16 @@
 ﻿using System.Linq;
 using BookLibrary.Domain.Exceptions;
-using BookLibrary.IntegrationTests.BookManageProcessTests.Scenarios;
+using BookLibrary.IntegrationTests.BookBorrowedProcessTests.Scenarios;
 using FluentAssertions;
 using Xunit;
 
-namespace BookLibrary.IntegrationTests.BookManageProcessTests
+namespace BookLibrary.IntegrationTests.BookBorrowedProcessTests
 {
     [Collection("IntegrationTests")]
     public class BorrowBookTests:TestBase
     {
         [Fact]
-         public void When_BorrowBookFirstTime_Should_CreateBookManageProcess()
+         public void When_BorrowBookFirstTime_Should_CreateBookBorrowedProcess()
          {
             //Arrange
             var borrowBookScenario=new BorrowBookScenario(Container);

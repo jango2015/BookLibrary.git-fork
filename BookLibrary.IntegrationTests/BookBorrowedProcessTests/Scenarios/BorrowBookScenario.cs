@@ -5,7 +5,7 @@ using BookLibrary.IntegrationTests.BookTests.Scenarios;
 using BookLibrary.IntegrationTests.UserTests.Scenarios;
 using Castle.Windsor;
 
-namespace BookLibrary.IntegrationTests.BookManageProcessTests.Scenarios
+namespace BookLibrary.IntegrationTests.BookBorrowedProcessTests.Scenarios
 {
     public class BorrowBookScenario:ScenarioBase
     {

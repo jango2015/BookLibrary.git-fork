@@ -3,7 +3,7 @@ using BookLibrary.ApplicationService.Contracts;
 using BookLibrary.DomainModel;
 using Castle.Windsor;
 
-namespace BookLibrary.IntegrationTests.BookManageProcessTests.Scenarios
+namespace BookLibrary.IntegrationTests.BookBorrowedProcessTests.Scenarios
 {
     public class ReturnBookScenario:ScenarioBase
     {
