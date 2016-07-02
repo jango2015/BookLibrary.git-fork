@@ -3,25 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using BookLibrary.Core.Events;
 
-namespace BookLibrary.Domain.Events.BookBorrowedProcess
+namespace BookLibrary.Domain.Events.BookLibraryProcess
 {
-    public partial class BookBorrowedProcessEvent
+    public partial class BookLibraryProcessEvent
     {
-        public class BookBorrowedProcessUpdatedEvent : IEntityCreatedEvent, IBookLibraryEvent
+        public class BookLibraryProcessUpdatedEvent : IEntityCreatedEvent, IBookLibraryEvent
         {
             [Obsolete("for serilization")]
-            public BookBorrowedProcessUpdatedEvent()
+            public BookLibraryProcessUpdatedEvent()
             {
                 BookBorrowedRecords = new List<BorrowedRecord>();
                 BookReturnedRecords = new List<ReturnedRecord>();
             }
 
-            public BookBorrowedProcessUpdatedEvent(BorrowedProcess.BookBorrowedProcess bookBorrowedProcess)
+            public BookLibraryProcessUpdatedEvent(BorrowedProcess.BookLibraryProcess bookLibraryProcess)
             {
-                BookBorrowedProcessId = bookBorrowedProcess.Id;
-                UserId = bookBorrowedProcess.UserId;
-                BookBorrowedRecords = bookBorrowedProcess.BookBorrowedRecords.Select(x => new BorrowedRecord(x)).ToList();
-                BookReturnedRecords = bookBorrowedProcess.BookReturnedRecords.Select(x => new ReturnedRecord(x)).ToList();
+                BookBorrowedProcessId = bookLibraryProcess.Id;
+                UserId = bookLibraryProcess.UserId;
+                BookBorrowedRecords = bookLibraryProcess.BookBorrowedRecords.Select(x => new BorrowedRecord(x)).ToList();
+                BookReturnedRecords = bookLibraryProcess.BookReturnedRecords.Select(x => new ReturnedRecord(x)).ToList();
             }
 
             public Guid BookBorrowedProcessId { get; private set; }

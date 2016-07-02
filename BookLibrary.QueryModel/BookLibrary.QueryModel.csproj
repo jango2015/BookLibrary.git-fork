@@ -41,8 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BorrowedBookProcessModel.cs" />
-    <Compile Include="UserBorrowedBookProcessMapper.cs" />
+    <Compile Include="BookLibraryProcessModel.cs" />
+    <Compile Include="UserAndLibraryProcessMapper.cs" />
     <Compile Include="UserQueryModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -4,9 +4,9 @@ using BookLibrary.Domain.BorrowedProcess;
 
 namespace BookLibrary.DomainService.Contracts
 {
-    public interface IBookBorrowedProcessService:IDomainService
+    public interface IBookLibraryProcessService:IDomainService
     {
-        BookBorrowedProcess GetBookBorrowedProcess(Guid bookBorrowedProcessId);
+        BookLibraryProcess GetBookLibraryProcess(Guid bookBorrowedProcessId);
 
         void BorrowBooks(Guid userId, List<Guid> bookIds, TimeSpan borrowInterval);
 

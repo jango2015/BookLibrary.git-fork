@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace BookLibrary.QueryModel
 {
-    public class UserBorrowedBookProcessMapper
+    public class UserAndLibraryProcessMapper
     {
         public static string Index(Guid userId)
         {
-            return "urn:user>borrowedBookProcess:" + userId;
+            return "urn:user>bookLibraryProcess:" + userId;
         }
     }
 }

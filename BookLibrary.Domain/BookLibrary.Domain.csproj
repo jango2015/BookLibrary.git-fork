@@ -83,15 +83,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BorrowedProcess\BookBorrowedProcess.cs" />
-    <Compile Include="BorrowedProcess\BookBorrowedProcess.Domain.cs" />
+    <Compile Include="BorrowedProcess\BookLibraryProcess.cs" />
+    <Compile Include="BorrowedProcess\BookLibraryProcess.Domain.cs" />
     <Compile Include="BorrowedProcess\BorrowedRecord.cs" />
     <Compile Include="BorrowedProcess\ReturnedRecord.cs" />
     <Compile Include="Book\Book.cs" />
     <Compile Include="Book\Book.Domain.cs" />
-    <Compile Include="Events\BookBorrowedProcess\BookBorrowedProcessCreatedEvent.cs" />
-    <Compile Include="Events\BookBorrowedProcess\BookBorrowedProcessEvent.cs" />
-    <Compile Include="Events\BookBorrowedProcess\BookBorrowedProcessUpdatedEvent.cs" />
+    <Compile Include="Events\BookLibraryProcess\BookLibraryProcessCreatedEvent.cs" />
+    <Compile Include="Events\BookLibraryProcess\BookLibraryProcessEvent.cs" />
+    <Compile Include="Events\BookLibraryProcess\BookLibraryProcessUpdatedEvent.cs" />
     <Compile Include="Events\IBookLibraryEvent.cs" />
     <Compile Include="Events\User\UserCreatedEvent.cs" />
     <Compile Include="Events\User\UserUpdatedEvent.cs" />

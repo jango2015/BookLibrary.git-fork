@@ -4,9 +4,9 @@ using BookLibrary.Repository.EntityFramework;
 
 namespace BookLibrary.Repository.Implements
 {
-    public class BookBorrowedProcessRepository : EntityFrameworkRepository<BookBorrowedProcess>, IBookBorrowedProcessRepository
+    public class BookLibraryProcessRepository : EntityFrameworkRepository<BookLibraryProcess>, IBookLibraryProcessRepository
     {
-        public BookBorrowedProcessRepository(IEntityFrameworkContext efContext)
+        public BookLibraryProcessRepository(IEntityFrameworkContext efContext)
           : base(efContext)
         {
         }

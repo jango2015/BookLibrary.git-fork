@@ -6,7 +6,7 @@ using BookLibrary.IntegrationTests.BookTests.Scenarios;
 using BookLibrary.IntegrationTests.UserTests.Scenarios;
 using Castle.Windsor;
 
-namespace BookLibrary.IntegrationTests.BookBorrowedProcessTests.Scenarios
+namespace BookLibrary.IntegrationTests.BookLibraryProcessTests.Scenarios
 {
     public class BorrowBookScenario:ScenarioBase
     {
@@ -35,7 +35,7 @@ namespace BookLibrary.IntegrationTests.BookBorrowedProcessTests.Scenarios
 
         public override void Execute()
         {
-            var bookManageService = Container.Resolve<IBookBorrowedProcessService>();
+            var bookManageService = Container.Resolve<IBookLibraryProcessService>();
 
             bookManageService.BorrowBooks(UserId, BookIds, TimeSpan.FromDays(1));
         }

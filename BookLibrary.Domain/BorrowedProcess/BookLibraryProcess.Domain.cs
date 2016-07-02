@@ -4,16 +4,16 @@ using System.Diagnostics.Contracts;
 using System.Linq;
 using BookLibrary.Core.Extensions;
 using BookLibrary.Core.ServiceBus;
-using BookLibrary.Domain.Events.BookBorrowedProcess;
+using BookLibrary.Domain.Events.BookLibraryProcess;
 using BookLibrary.Domain.Exceptions;
 
 namespace BookLibrary.Domain.BorrowedProcess
 {
-    public partial class BookBorrowedProcess
+    public partial class BookLibraryProcess
     {
-        public static BookBorrowedProcess StartNewProcess(Guid userId)
+        public static BookLibraryProcess StartNewProcess(Guid userId)
         {
-            return new BookBorrowedProcess(userId);
+            return new BookLibraryProcess(userId);
         }
 
         public void BorrowBooks(List<Book.Book> books, TimeSpan borrowInterval)
@@ -27,7 +27,7 @@ namespace BookLibrary.Domain.BorrowedProcess
                 BorrowBook(book,borrowInterval);
             }
 
-            EventRaiser.RaiseEvent(new BookBorrowedProcessEvent.BookBorrowedProcessCreatedEvent(this));
+            EventRaiser.RaiseEvent(new BookLibraryProcessEvent.BookLibraryProcessCreatedEvent(this));
         }
 
         private void BorrowBook(Book.Book book,TimeSpan borrowInterval)
@@ -63,7 +63,7 @@ namespace BookLibrary.Domain.BorrowedProcess
             var record=new ReturnedRecord(this,UserId, book,borrowRecord);
             BookReturnedRecords.Add(record);
 
-            EventRaiser.RaiseEvent(new BookBorrowedProcessEvent.BookBorrowedProcessUpdatedEvent(this));
+            EventRaiser.RaiseEvent(new BookLibraryProcessEvent.BookLibraryProcessUpdatedEvent(this));
         }
     }
 }

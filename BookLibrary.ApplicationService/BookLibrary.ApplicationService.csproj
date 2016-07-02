@@ -51,12 +51,12 @@
     <Compile Include="ApplicationService.cs" />
     <Compile Include="ContainerInstallers\ApplicationServiceInstaller.cs" />
     <Compile Include="ContainerInstallers\UnitOfWorkInterceptorInstaller.cs" />
-    <Compile Include="Contracts\IBookBorrowedProcessService.cs" />
+    <Compile Include="Contracts\IBookLibraryProcessService.cs" />
     <Compile Include="Contracts\IBookService.cs" />
     <Compile Include="Contracts\IUserService.cs" />
     <Compile Include="Exceptions\ApplicationServiceException.cs" />
     <Compile Include="IApplicationService.cs" />
-    <Compile Include="Implements\BookBorrowedProcessService.cs" />
+    <Compile Include="Implements\BookLibraryProcessService.cs" />
     <Compile Include="Implements\BookService.cs" />
     <Compile Include="Implements\UserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

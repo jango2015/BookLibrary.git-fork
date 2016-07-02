@@ -65,8 +65,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BookBorrowedProcess\BookBorrowedProcessQueryModelUpdater.cs" />
-    <Compile Include="BookBorrowedProcess\UserBorrowedBookProcessMapperUpdater.cs" />
+    <Compile Include="BookLibraryProcess\BookLibraryProcessQueryModelUpdater.cs" />
+    <Compile Include="BookLibraryProcess\UserAndBookLibraryProcessMapperUpdater.cs" />
     <Compile Include="ContainerInstallers\QueryModelUpdaterInstaller.cs" />
     <Compile Include="ContainerInstallers\QueryModelUpdaterSessionInstaller.cs" />
     <Compile Include="IQueryModelUpdaterSession.cs" />

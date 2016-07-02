@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 
-namespace BookLibrary.Domain.Events.BookBorrowedProcess
+namespace BookLibrary.Domain.Events.BookLibraryProcess
 {
-    public partial class BookBorrowedProcessEvent
+    public partial class BookLibraryProcessEvent
     {
         public class BorrowedRecord
         {

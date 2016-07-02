@@ -14,10 +14,10 @@ namespace BookLibrary.IntegrationTests
 
         protected IUserService UserService => Container.Resolve<IUserService>();
         protected IBookService BookService => Container.Resolve<IBookService>();
-        protected IBookBorrowedProcessService BookBorrowedProcessService => Container.Resolve<IBookBorrowedProcessService>();
+        protected IBookLibraryProcessService BookLibraryProcessService => Container.Resolve<IBookLibraryProcessService>();
 
         protected IUserQueryReader UserQueryReader => Container.Resolve<IUserQueryReader>();
-        protected IBookBorrowedProcessQueryReader BookBorrowedProcessQueryReader=> Container.Resolve<IBookBorrowedProcessQueryReader>();
+        protected IBookLibraryProcessQueryReader BookLibraryProcessQueryReader=> Container.Resolve<IBookLibraryProcessQueryReader>();
 
 
         public TestBase()

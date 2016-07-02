@@ -1,22 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using BookLibrary.Domain.Events.BookBorrowedProcess;
+using BookLibrary.Domain.Events.BookLibraryProcess;
 
 namespace BookLibrary.QueryModel
 {
-    public class BorrowedBookProcessModel
+    public class BookLibraryProcessModel
     {
-        public BorrowedBookProcessModel(BookBorrowedProcessEvent.BookBorrowedProcessCreatedEvent evt)
+        public BookLibraryProcessModel(BookLibraryProcessEvent.BookLibraryProcessCreatedEvent evt)
         {
-            BookBorrowedProcessId = evt.BookBorrowedProcessId;
+            BookBorrowedProcessId = evt.BookLibraryProcessId;
             UserId = evt.UserId;
             BorrowDate = evt.BorrowDate;
             BookBorrowedRecords = evt.BookBorrowedRecords.Select(x => new BorrowedRecord(x)).ToList();
             BookReturnedRecords = evt.BookReturnedRecords.Select(x => new ReturnedRecord(x)).ToList();
         }
 
-        public BorrowedBookProcessModel(BookBorrowedProcessEvent.BookBorrowedProcessUpdatedEvent evt)
+        public BookLibraryProcessModel(BookLibraryProcessEvent.BookLibraryProcessUpdatedEvent evt)
         {
             BookBorrowedProcessId = evt.BookBorrowedProcessId;
             UserId = evt.UserId;
@@ -35,7 +35,7 @@ namespace BookLibrary.QueryModel
         {
             [Obsolete("for serilization")]
             public BorrowedRecord() { }
-            public BorrowedRecord(BookBorrowedProcessEvent.BorrowedRecord borrowedRecord)
+            public BorrowedRecord(BookLibraryProcessEvent.BorrowedRecord borrowedRecord)
             {
                 UserId = borrowedRecord.UserId;
                 BookId = borrowedRecord.BookId;
@@ -54,7 +54,7 @@ namespace BookLibrary.QueryModel
             [Obsolete("for serilization")]
             public ReturnedRecord() { }
 
-            public ReturnedRecord(BookBorrowedProcessEvent.ReturnedRecord returnedRecord)
+            public ReturnedRecord(BookLibraryProcessEvent.ReturnedRecord returnedRecord)
             {
                 UserId = returnedRecord.UserId;
                 BookId = returnedRecord.BookId;

@@ -4,16 +4,16 @@ using BookLibrary.Core;
 
 namespace BookLibrary.Domain.BorrowedProcess
 {
-    public partial class BookBorrowedProcess:AggregateRoot<BookBorrowedProcess>
+    public partial class BookLibraryProcess:AggregateRoot<BookLibraryProcess>
     {
         [Obsolete("for serialization")]
-        public BookBorrowedProcess()
+        public BookLibraryProcess()
         {
             BookBorrowedRecords = new List<BorrowedRecord>();
             BookReturnedRecords = new List<ReturnedRecord>();
         }
 
-        public BookBorrowedProcess(Guid userId) : this()
+        public BookLibraryProcess(Guid userId) : this()
         {
             UserId = userId;
             Id = Guid.NewGuid();

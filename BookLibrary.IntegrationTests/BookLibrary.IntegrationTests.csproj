@@ -76,10 +76,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BookBorrowedProcessTests\BorrowBookTests.cs" />
-    <Compile Include="BookBorrowedProcessTests\ReturnBookTests.cs" />
-    <Compile Include="BookBorrowedProcessTests\Scenarios\BorrowBookScenario.cs" />
-    <Compile Include="BookBorrowedProcessTests\Scenarios\ReturnBookScenario.cs" />
+    <Compile Include="BookLibraryProcessTests\BorrowBookTests.cs" />
+    <Compile Include="BookLibraryProcessTests\ReturnBookTests.cs" />
+    <Compile Include="BookLibraryProcessTests\Scenarios\BorrowBookScenario.cs" />
+    <Compile Include="BookLibraryProcessTests\Scenarios\ReturnBookScenario.cs" />
     <Compile Include="BookTests\BookAddTests.cs" />
     <Compile Include="BookTests\Scenarios\BookAddScenario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

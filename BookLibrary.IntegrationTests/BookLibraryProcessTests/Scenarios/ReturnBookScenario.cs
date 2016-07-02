@@ -4,7 +4,7 @@ using BookLibrary.ApplicationService.Contracts;
 using BookLibrary.DomainModel;
 using Castle.Windsor;
 
-namespace BookLibrary.IntegrationTests.BookBorrowedProcessTests.Scenarios
+namespace BookLibrary.IntegrationTests.BookLibraryProcessTests.Scenarios
 {
     public class ReturnBookScenario:ScenarioBase
     {
@@ -29,7 +29,7 @@ namespace BookLibrary.IntegrationTests.BookBorrowedProcessTests.Scenarios
 
         public override void Execute()
         {
-            var bookManageService = Container.Resolve<IBookBorrowedProcessService>();
+            var bookManageService = Container.Resolve<IBookLibraryProcessService>();
 
             bookManageService.ReturnBook(UserId,BookId);
         }

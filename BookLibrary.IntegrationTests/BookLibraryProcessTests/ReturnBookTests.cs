@@ -1,9 +1,7 @@
-﻿using System.Linq;
-using BookLibrary.IntegrationTests.BookBorrowedProcessTests.Scenarios;
-using FluentAssertions;
+﻿using BookLibrary.IntegrationTests.BookLibraryProcessTests.Scenarios;
 using Xunit;
 
-namespace BookLibrary.IntegrationTests.BookBorrowedProcessTests
+namespace BookLibrary.IntegrationTests.BookLibraryProcessTests
 {
     [Collection("IntegrationTests")]
     public class ReturnBookTests:TestBase
@@ -18,7 +16,7 @@ namespace BookLibrary.IntegrationTests.BookBorrowedProcessTests
             returnBookScenario.Execute();
 
             //Assert
-            //var process = BookBorrowedProcessService.GetBookBorrowedProcess(returnBookScenario.UserId);
+            //var process = BooLibraryProcessService.GetBookLibraryProcess(returnBookScenario.UserId);
             //process.BookReturnedRecords.Count.Should().Be(1);
 
             //var returnRecord = process.BookReturnedRecords.First();

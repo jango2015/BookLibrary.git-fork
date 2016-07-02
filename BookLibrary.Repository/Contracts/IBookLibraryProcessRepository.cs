@@ -3,7 +3,7 @@ using BookLibrary.Domain.BorrowedProcess;
 
 namespace BookLibrary.Repository.Contracts
 {
-    public interface IBookBorrowedProcessRepository : IRepository<BookBorrowedProcess>
+    public interface IBookLibraryProcessRepository : IRepository<BookLibraryProcess>
     {
     }
 }

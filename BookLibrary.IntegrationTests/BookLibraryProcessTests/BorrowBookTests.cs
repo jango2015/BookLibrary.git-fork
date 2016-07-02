@@ -1,10 +1,10 @@
 ﻿using System.Linq;
 using BookLibrary.Domain.Exceptions;
-using BookLibrary.IntegrationTests.BookBorrowedProcessTests.Scenarios;
+using BookLibrary.IntegrationTests.BookLibraryProcessTests.Scenarios;
 using FluentAssertions;
 using Xunit;
 
-namespace BookLibrary.IntegrationTests.BookBorrowedProcessTests
+namespace BookLibrary.IntegrationTests.BookLibraryProcessTests
 {
     [Collection("IntegrationTests")]
     public class BorrowBookTests:TestBase
@@ -19,7 +19,7 @@ namespace BookLibrary.IntegrationTests.BookBorrowedProcessTests
             borrowBookScenario.Execute();
 
             //Assert
-            var bookBorrowedProcees = BookBorrowedProcessQueryReader.GetByUserId(borrowBookScenario.UserId);
+            var bookBorrowedProcees = BookLibraryProcessQueryReader.GetByUserId(borrowBookScenario.UserId);
             var process = bookBorrowedProcees.Last();
             process.BookBorrowedRecords.Count.Should().BeGreaterThan(0);
         }

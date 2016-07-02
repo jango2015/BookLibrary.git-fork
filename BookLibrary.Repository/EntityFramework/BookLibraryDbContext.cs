@@ -28,14 +28,14 @@ namespace BookLibrary.Repository.EntityFramework
         {
             modelBuilder.Entity<Book>().Map(m => m.MapInheritedProperties());
             modelBuilder.Entity<User>().Map(m => m.MapInheritedProperties());
-            modelBuilder.Entity<BookBorrowedProcess>().Map(m => m.MapInheritedProperties());
+            modelBuilder.Entity<BookLibraryProcess>().Map(m => m.MapInheritedProperties());
             modelBuilder.Entity<BorrowedRecord>().Map(m => m.MapInheritedProperties());
             modelBuilder.Entity<ReturnedRecord>().Map(m => m.MapInheritedProperties());
 
             modelBuilder.Configurations
                 .Add(new BookTypeConfiguration())
                 .Add(new UserTypeConfiguration())
-                .Add(new BookBorrowProcessTypeConfiguration())
+                .Add(new BookLibraryProcessTypeConfiguration())
                 .Add(new BorrowRecordTypeConfiguration())
                 .Add(new ReturnBookRecordTypeConfiguration())
                 ;
@@ -48,7 +48,7 @@ namespace BookLibrary.Repository.EntityFramework
 
         public DbSet<User> Users { get; set; }
 
-        public DbSet<BookBorrowedProcess> BookBorrowedProcesses { get; set; } 
+        public DbSet<BookLibraryProcess> BookLibraryProcesses { get; set; } 
 
         public DbSet<BorrowedRecord> BookBorrowedRecords { get; set; } 
 
