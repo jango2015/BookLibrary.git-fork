@@ -5,11 +5,11 @@ using BookLibrary.Domain.Exceptions;
 
 namespace BookLibrary.Domain.BookManageProcess
 {
-    public partial class BookManageProcess
+    public partial class BookBorrowedProcess
     {
-        public static BookManageProcess StartNewProcess(Guid userId)
+        public static BookBorrowedProcess StartNewProcess(Guid userId)
         {
-            return new BookManageProcess(userId);
+            return new BookBorrowedProcess(userId);
         }
 
         public void BorrowBook(Book.Book book,TimeSpan borrowInterval)
@@ -22,13 +22,13 @@ namespace BookLibrary.Domain.BookManageProcess
                 throw new BookNotEnoughException($"book:{book.Name} is not enough");
             }
 
-            if(BorrowedBookRecords.Any(x=>x.Book.Name==book.Name))
+            if(BorrowedBookRecords.Any(x=>x.Book.ISBN==book.ISBN))
             {
-                throw new BorrowSameBookTwiceException($"already have borrow record for book:{book.Name}");
+                throw new BorrowSameBookTwiceException($"already have borrowed record for book:{book.Name}");
             }
 
             book.Borrow();
-            var record = new BorrowRecord(UserId, book, borrowInterval);
+            var record = new BorrowedRecord(UserId, book, borrowInterval);
             BorrowedBookRecords.Add(record);
         }
 
@@ -39,7 +39,7 @@ namespace BookLibrary.Domain.BookManageProcess
             var borrowRecord = BorrowedBookRecords.Single(x => x.Book.Id == book.Id);
 
             book.Return();
-            var record=new ReturnBookRecord(UserId, book,borrowRecord);
+            var record=new ReturnedRecord(UserId, book,borrowRecord);
             ReturnedBookRecords.Add(record);
         }
     }

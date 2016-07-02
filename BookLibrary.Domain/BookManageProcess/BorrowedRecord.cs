@@ -3,12 +3,12 @@ using BookLibrary.Core;
 
 namespace BookLibrary.Domain.BookManageProcess
 {
-    public class BorrowRecord:Entity
+    public class BorrowedRecord:Entity
     {
         [Obsolete("for serialization")]
-        public BorrowRecord() { }
+        public BorrowedRecord() { }
 
-        public BorrowRecord(Guid userId, Book.Book book, TimeSpan borrowInterval)
+        public BorrowedRecord(Guid userId, Book.Book book, TimeSpan borrowInterval)
         {
             Id = Guid.NewGuid();
 

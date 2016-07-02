@@ -54,11 +54,11 @@
   <ItemGroup>
     <Compile Include="ContainerInstallers\EntityFrameworkRepositoryInstaller.cs" />
     <Compile Include="ContainerInstallers\RepositoryContextInstaller.cs" />
-    <Compile Include="Contracts\IBookManageProcessRepository.cs" />
+    <Compile Include="Contracts\IBookBorrowedProcessRepository.cs" />
     <Compile Include="Contracts\IBookRepository.cs" />
     <Compile Include="Contracts\IUserRepository.cs" />
     <Compile Include="EntityFramework\BookLibraryDbContext.cs" />
-    <Compile Include="EntityFramework\Configurations\BookManageProcessTypeConfiguration.cs" />
+    <Compile Include="EntityFramework\Configurations\BookBorrowProcessTypeConfiguration.cs" />
     <Compile Include="EntityFramework\Configurations\BookTypeConfiguration.cs" />
     <Compile Include="EntityFramework\Configurations\BorrowRecordTypeConfiguration.cs" />
     <Compile Include="EntityFramework\Configurations\ReturnBookRecordTypeConfiguration.cs" />
@@ -68,7 +68,7 @@
     <Compile Include="EntityFramework\IEntityFrameworkContext.cs" />
     <Compile Include="EntityFramework\IEntityFrameworkRepository.cs" />
     <Compile Include="Exceptions\NoSuchAggregateRootException.cs" />
-    <Compile Include="Implements\BookManageProcessRepository.cs" />
+    <Compile Include="Implements\BookBorrowedProcessRepository.cs" />
     <Compile Include="Implements\BookRepository.cs" />
     <Compile Include="Implements\UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -4,9 +4,9 @@ using BookLibrary.Domain.BookManageProcess;
 
 namespace BookLibrary.Repository.EntityFramework.Configurations
 {
-    public class BookManageProcessTypeConfiguration: EntityTypeConfiguration<BookManageProcess>
+    public class BookBorrowProcessTypeConfiguration: EntityTypeConfiguration<BookBorrowedProcess>
     {
-        public BookManageProcessTypeConfiguration()
+        public BookBorrowProcessTypeConfiguration()
         {
             HasKey(m => m.Id);
 

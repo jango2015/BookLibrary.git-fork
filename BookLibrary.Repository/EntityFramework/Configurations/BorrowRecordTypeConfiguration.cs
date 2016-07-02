@@ -4,7 +4,7 @@ using BookLibrary.Domain.BookManageProcess;
 
 namespace BookLibrary.Repository.EntityFramework.Configurations
 {
-    public class BorrowRecordTypeConfiguration:EntityTypeConfiguration<BorrowRecord>
+    public class BorrowRecordTypeConfiguration:EntityTypeConfiguration<BorrowedRecord>
     {
         public BorrowRecordTypeConfiguration()
         {

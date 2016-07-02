@@ -27,7 +27,7 @@ namespace BookLibrary.IntegrationTests.BookManageProcessTests.Scenarios
 
         public override void Execute()
         {
-            var bookManageService = Container.Resolve<IBookManageProcessService>();
+            var bookManageService = Container.Resolve<IBookBorrowedProcessService>();
 
             bookManageService.ReturnBook(UserId,BookId);
         }

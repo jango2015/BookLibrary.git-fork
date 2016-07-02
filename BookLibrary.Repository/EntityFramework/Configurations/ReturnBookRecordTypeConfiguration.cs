@@ -4,7 +4,7 @@ using BookLibrary.Domain.BookManageProcess;
 
 namespace BookLibrary.Repository.EntityFramework.Configurations
 {
-    public class ReturnBookRecordTypeConfiguration: EntityTypeConfiguration<ReturnBookRecord>
+    public class ReturnBookRecordTypeConfiguration: EntityTypeConfiguration<ReturnedRecord>
     {
         public ReturnBookRecordTypeConfiguration()
         {

@@ -32,7 +32,7 @@ namespace BookLibrary.IntegrationTests.BookManageProcessTests.Scenarios
 
         public override void Execute()
         {
-            var bookManageService = Container.Resolve<IBookManageProcessService>();
+            var bookManageService = Container.Resolve<IBookBorrowedProcessService>();
 
             bookManageService.BorrowBook(UserId,BookId,TimeSpan.FromDays(1));
         }

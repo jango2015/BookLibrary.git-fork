@@ -83,10 +83,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BookManageProcess\BookManageProcess.cs" />
-    <Compile Include="BookManageProcess\BookManageProcess.Domain.cs" />
-    <Compile Include="BookManageProcess\BorrowRecord.cs" />
-    <Compile Include="BookManageProcess\ReturnBookRecord.cs" />
+    <Compile Include="BookManageProcess\BookBorrowedProcess.cs" />
+    <Compile Include="BookManageProcess\BookBorrowedProcess.Domain.cs" />
+    <Compile Include="BookManageProcess\BorrowedRecord.cs" />
+    <Compile Include="BookManageProcess\ReturnedRecord.cs" />
     <Compile Include="Book\Book.cs" />
     <Compile Include="Book\Book.Domain.cs" />
     <Compile Include="Exceptions\BookNotEnoughException.cs" />

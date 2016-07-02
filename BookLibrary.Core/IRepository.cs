@@ -16,6 +16,7 @@ namespace BookLibrary.Core
 
         void Remove(TAggregateRoot aggregateRoot);
 
+        [Obsolete("Becareful, you must need kown what are you doing!")]
         IEnumerable<TAggregateRoot> GetAll();
 
         IEnumerable<TAggregateRoot> Find(Expression<Func<TAggregateRoot, bool>> conditions);

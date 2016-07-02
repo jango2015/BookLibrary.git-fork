@@ -3,12 +3,12 @@ using BookLibrary.Core;
 
 namespace BookLibrary.Domain.BookManageProcess
 {
-    public class ReturnBookRecord:Entity
+    public class ReturnedRecord:Entity
     {
         [Obsolete("for serialization")]
-        public ReturnBookRecord() { }
+        public ReturnedRecord() { }
 
-        public ReturnBookRecord(Guid userId, Book.Book book,BorrowRecord borrowRecord)
+        public ReturnedRecord(Guid userId, Book.Book book,BorrowedRecord borrowedRecord)
         {
             Id = Guid.NewGuid();
 
@@ -16,8 +16,8 @@ namespace BookLibrary.Domain.BookManageProcess
             Book = book;
             ReturnDate=DateTime.Now;
 
-            var interval = DateTime.Now.Subtract(borrowRecord.BorrowDate);
-            if (interval > borrowRecord.BorrowInterval)
+            var interval = DateTime.Now.Subtract(borrowedRecord.BorrowDate);
+            if (interval > borrowedRecord.BorrowInterval)
             {
                 IsPostpone = true;
                 PostponeDate = interval;

@@ -16,7 +16,7 @@ namespace BookLibrary.IntegrationTests
         protected IUserQueryReader UserQueryReader => Container.Resolve<IUserQueryReader>();
         protected IBookService BookService => Container.Resolve<IBookService>();
 
-        protected IBookManageProcessService BookManageProcessService => Container.Resolve<IBookManageProcessService>();
+        protected IBookBorrowedProcessService BookBorrowedProcessService => Container.Resolve<IBookBorrowedProcessService>();
 
         public TestBase()
         {

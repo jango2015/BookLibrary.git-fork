@@ -9,7 +9,7 @@ namespace BookLibrary.IntegrationTests.BookTests
     public class BookAddTests:TestBase
     {
         [Fact]
-         public void After_AddedBook_Should_GetBookId()
+         public void After_AddedBook_Should_ReturnBookId()
          {
              //Arrange
              var bookAddScenario=new BookAddScenario(Container);
