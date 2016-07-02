@@ -19,10 +19,10 @@ namespace BookLibrary.IntegrationTests.BookBorrowedProcessTests
             borrowBookScenario.Execute();
 
             //Assert
-            //var process = BookBorrowedProcessService.GetBookBorrowedProcess(borrowBookScenario.UserId);
-            //process.BookBorrowedRecords.Count.Should().Be(1);
-            //process.BookBorrowedRecords.First().Book.Number.Should().Be(borrowBookScenario.GivingBookModel.Number - 1);
-         }
+            var bookBorrowedProcees = BookBorrowedProcessQueryReader.GetByUserId(borrowBookScenario.UserId);
+            var process = bookBorrowedProcees.Last();
+            process.BookBorrowedRecords.Count.Should().BeGreaterThan(0);
+        }
 
         [Fact]
         public void When_BorrowSameBookTwice_Should_ThrowException()

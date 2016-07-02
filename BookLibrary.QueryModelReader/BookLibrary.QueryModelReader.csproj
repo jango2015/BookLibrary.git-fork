@@ -66,6 +66,8 @@
   <ItemGroup>
     <Compile Include="ContainerInstallers\QueryModelReaderSessionInstaller.cs" />
     <Compile Include="ContainerInstallers\QueryReaderInstaller.cs" />
+    <Compile Include="Implements\BookBorrowedProcessQueryReader.cs" />
+    <Compile Include="Contracts\IBookBorrowedProcessQueryReader.cs" />
     <Compile Include="Contracts\IUserQueryReader.cs" />
     <Compile Include="Implements\UserQueryReader.cs" />
     <Compile Include="IQueryModelReaderSession.cs" />

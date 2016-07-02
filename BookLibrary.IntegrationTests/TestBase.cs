@@ -13,10 +13,12 @@ namespace BookLibrary.IntegrationTests
         protected IWindsorContainer Container { get; }
 
         protected IUserService UserService => Container.Resolve<IUserService>();
-        protected IUserQueryReader UserQueryReader => Container.Resolve<IUserQueryReader>();
         protected IBookService BookService => Container.Resolve<IBookService>();
-
         protected IBookBorrowedProcessService BookBorrowedProcessService => Container.Resolve<IBookBorrowedProcessService>();
+
+        protected IUserQueryReader UserQueryReader => Container.Resolve<IUserQueryReader>();
+        protected IBookBorrowedProcessQueryReader BookBorrowedProcessQueryReader=> Container.Resolve<IBookBorrowedProcessQueryReader>();
+
 
         public TestBase()
         {
