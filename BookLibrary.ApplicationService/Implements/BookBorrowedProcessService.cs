@@ -21,35 +21,35 @@ namespace BookLibrary.ApplicationService.Implements
             _bookRepository = bookRepository;
         }
 
-        public BookBorrowedProcess GetBookBorrowProcess(Guid userId)
+        public BookBorrowedProcess GetBookBorrowedProcess(Guid userId)
         {
-            var bookManageProcess = _bookBorrowedProcessRepository.Find(x => x.UserId == userId).FirstOrDefault();
+            var borrowedProcess = _bookBorrowedProcessRepository.Find(x => x.UserId == userId).FirstOrDefault();
 
-            return bookManageProcess;
+            return borrowedProcess;
         }
 
         public void BorrowBook(Guid userId, Guid bookId, TimeSpan borrowInterval)
         {
             var book = _bookRepository.Get(bookId);
-            var bookManageProcess = GetBookBorrowProcess(userId);
-            if (bookManageProcess == null)
+            var borrowedProcess = GetBookBorrowedProcess(userId);
+            if (borrowedProcess == null)
             {
-                bookManageProcess=BookBorrowedProcess.StartNewProcess(userId);
+                borrowedProcess=BookBorrowedProcess.StartNewProcess(userId);
             }
 
-            bookManageProcess.BorrowBook(book,borrowInterval);
+            borrowedProcess.BorrowBook(book,borrowInterval);
 
-            _bookBorrowedProcessRepository.Add(bookManageProcess);
+            _bookBorrowedProcessRepository.Add(borrowedProcess);
         }
 
         public void ReturnBook(Guid userId, Guid bookId)
         {
-            var bookManageProcess = GetBookBorrowProcess(userId);
+            var bookBorrowedProcess = GetBookBorrowedProcess(userId);
             var book = _bookRepository.Get(bookId);
 
-            bookManageProcess.ReturnBook(book);
+            bookBorrowedProcess.ReturnBook(book);
 
-            _bookBorrowedProcessRepository.Update(bookManageProcess);
+            _bookBorrowedProcessRepository.Update(bookBorrowedProcess);
         }
     }
 }
